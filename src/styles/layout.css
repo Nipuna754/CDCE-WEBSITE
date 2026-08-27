@@ -24,6 +24,36 @@
   }
 }
 
+.route-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 40%;
+  background: linear-gradient(90deg, var(--gold), var(--brand));
+  z-index: 50;
+  animation: route-progress-run 0.5s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+  pointer-events: none;
+}
+@keyframes route-progress-run {
+  0% {
+    width: 0%;
+    opacity: 1;
+  }
+  70% {
+    width: 78%;
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 0;
+  }
+}
+
+.route-fade {
+  animation: fade-up 0.35s ease both;
+}
+
 header.site {
   background: var(--surface);
   border-bottom: 1px solid var(--line);
@@ -77,6 +107,7 @@ nav.main a {
   padding: 0.3rem 0;
   border-bottom: 2px solid transparent;
   white-space: nowrap;
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
 nav.main a:hover,
 nav.main a.active {
@@ -89,9 +120,9 @@ nav.main a.active {
   gap: 0.6rem;
 }
 .icon-btn {
-  width: 38px;
-  height: 38px;
-  border-radius: 7px;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
   border: 1px solid var(--line);
   display: flex;
   align-items: center;
@@ -100,6 +131,14 @@ nav.main a.active {
   cursor: pointer;
   color: var(--ink-soft);
   flex: none;
+  transition: border-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+.icon-btn:hover {
+  border-color: var(--gold);
+  color: var(--ink);
+}
+.icon-btn:active {
+  transform: scale(0.94);
 }
 .menu-toggle {
   display: none;
@@ -113,6 +152,17 @@ nav.main a.active {
   }
 }
 
+.mobile-nav-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.28s ease;
+}
+.mobile-nav-wrap[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+.mobile-nav-wrap > .mobile-nav {
+  overflow: hidden;
+}
 .mobile-nav {
   border-top: 1px solid var(--line);
   background: var(--surface);
@@ -121,14 +171,20 @@ nav.main a.active {
   flex-direction: column;
 }
 .mobile-nav a {
-  padding: 0.65rem 0;
+  padding: 0.65rem 0.4rem;
+  margin: 0 -0.4rem;
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--ink-soft);
   border-bottom: 1px solid var(--line);
+  border-radius: 6px;
+  transition: color 0.15s ease, background-color 0.15s ease;
 }
 .mobile-nav a:last-child {
   border-bottom: none;
+}
+.mobile-nav a:active {
+  background: var(--surface-2);
 }
 .mobile-nav a.active {
   color: var(--accent);

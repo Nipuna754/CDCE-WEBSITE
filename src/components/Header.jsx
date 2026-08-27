@@ -63,7 +63,7 @@ export default function Header() {
           </div>
         </div>
 
-        {open && (
+        <div className="mobile-nav-wrap" data-open={open}>
           <nav className="mobile-nav">
             {navLinks.map((link) => (
               <NavLink key={link.to} to={link.to} end={link.to === "/"} onClick={() => setOpen(false)}>
@@ -71,7 +71,7 @@ export default function Header() {
               </NavLink>
             ))}
           </nav>
-        )}
+        </div>
       </header>
     </>
   );

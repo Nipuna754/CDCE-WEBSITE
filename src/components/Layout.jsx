@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import RouteProgress from "./RouteProgress";
 
 export default function Layout() {
   const location = useLocation();
@@ -12,8 +13,9 @@ export default function Layout() {
 
   return (
     <>
+      <RouteProgress />
       <Header />
-      <main>
+      <main key={location.pathname} className="route-fade">
         <Outlet />
       </main>
       <Footer />
