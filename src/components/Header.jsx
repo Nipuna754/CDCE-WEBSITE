@@ -40,14 +40,6 @@ export default function Header() {
             </div>
           </NavLink>
 
-          <nav className="main">
-            {navLinks.map((link) => (
-              <NavLink key={link.to} to={link.to} end={link.to === "/"}>
-                {link.label}
-              </NavLink>
-            ))}
-          </nav>
-
           <div className="head-actions">
             <button className="icon-btn" aria-label="Search">
               ⌕
