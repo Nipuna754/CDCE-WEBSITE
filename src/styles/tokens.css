@@ -23,6 +23,11 @@
   --veil-strong: rgba(255, 255, 255, 0.9);
   --veil-soft: rgba(242, 237, 231, 0.84);
 
+  /* Third accent — warm terracotta, used sparingly for category labels and
+     small highlight details so the palette reads as more than maroon+gold. */
+  --terracotta: #b5651d;
+  --terracotta-soft: #f6e6d6;
+
   --font-display: "Lora", Georgia, serif;
   --font-body: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;

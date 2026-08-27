@@ -1,10 +1,25 @@
 import { Link } from "react-router-dom";
-import { notices, events, news, externalSystems } from "../data/content";
+import {
+  notices,
+  events,
+  news,
+  externalSystems,
+  degreeProgrammes,
+  diplomaProgrammes,
+  certificateProgrammes,
+} from "../data/content";
 import "../styles/home.css";
+
+const tickerItems = [
+  ...degreeProgrammes.map((p) => p.name.replace(/\s*—.*/, "")),
+  ...diplomaProgrammes.map((p) => p.name),
+  ...certificateProgrammes.map((p) => p.name),
+];
 
 const quickLinks = [
   {
     to: "/programmes",
+    category: "Study",
     title: "Academic programmes",
     desc: "Degrees, diplomas and certificates",
     icon: (
@@ -17,6 +32,7 @@ const quickLinks = [
   {
     to: externalSystems.applyOnline,
     external: true,
+    category: "Admissions",
     title: "Apply now",
     desc: "Current intake, open until 30 Aug",
     icon: (
@@ -28,6 +44,7 @@ const quickLinks = [
   },
   {
     to: "/notices",
+    category: "Announcements",
     title: "Notices",
     desc: "Exam schedules and announcements",
     icon: (
@@ -39,6 +56,7 @@ const quickLinks = [
   },
   {
     to: "/examinations",
+    category: "Academics",
     title: "Examinations",
     desc: "Timetables, results, procedures",
     icon: (
@@ -50,6 +68,7 @@ const quickLinks = [
   },
   {
     to: "/downloads",
+    category: "Resources",
     title: "Downloads",
     desc: "Forms, handbooks, past papers",
     icon: (
@@ -62,6 +81,7 @@ const quickLinks = [
   {
     to: externalSystems.studentMis,
     external: true,
+    category: "Student services",
     title: "Student MIS",
     desc: "Registration and student records",
     icon: (
@@ -74,6 +94,7 @@ const quickLinks = [
   {
     to: externalSystems.lmsBba,
     external: true,
+    category: "E-learning",
     title: "LMS",
     desc: "Course materials and coursework",
     icon: (
@@ -86,6 +107,7 @@ const quickLinks = [
   },
   {
     to: "/faqs",
+    category: "Help",
     title: "FAQs",
     desc: "Common questions, answered",
     icon: (
@@ -102,6 +124,7 @@ function QuickCard({ item }) {
   const content = (
     <>
       <div className="ico">{item.icon}</div>
+      <div className="cat">{item.category}</div>
       <div className="ttl">{item.title}</div>
       <div className="dsc">{item.desc}</div>
     </>
@@ -128,11 +151,13 @@ export default function Home() {
     <>
       <section className="hero">
         <div className="wrap hero-grid">
-          <div className="hero-main">
+          <div className="hero-main fade-up">
             <div className="hero-tag">
               <span className="dot" /> Admissions open · closes 30 August 2026
             </div>
-            <h1>Distance and continuing education, on your schedule.</h1>
+            <h1>
+              Distance and continuing education, <em>on your schedule.</em>
+            </h1>
             <p>
               Degree, diploma and certificate programmes taught in Sinhala, Tamil and English — open to learners
               across Sri Lanka since 2007.
@@ -146,7 +171,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="hero-side">
+          <div className="hero-side fade-up-delay-1">
             <div className="notice-card">
               <div className="head-row">
                 <h3>Latest notices</h3>
@@ -166,6 +191,16 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <div className="ticker" aria-hidden="true">
+        <div className="ticker-track">
+          {[...tickerItems, ...tickerItems].map((name, i) => (
+            <span className="ticker-item" key={i}>
+              {name} <span className="spark">✦</span>
+            </span>
+          ))}
+        </div>
+      </div>
 
       <section className="quick">
         <div className="wrap">

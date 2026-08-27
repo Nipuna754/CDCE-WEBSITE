@@ -43,22 +43,64 @@
   background: var(--gold);
 }
 .hero-main h1 {
-  font-size: clamp(1.9rem, 4vw, 2.9rem);
+  font-size: clamp(2.1rem, 4.6vw, 3.4rem);
   color: #fff;
-  max-width: 20ch;
+  max-width: 21ch;
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.25);
+}
+.hero-main h1 em {
+  font-style: italic;
+  color: var(--gold);
 }
 .hero-main p {
   max-width: 50ch;
   color: #f3e4e6;
   margin: 0;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
 }
 .hero-cta {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
   margin-top: 0.4rem;
+}
+
+/* Auto-scrolling programme ticker */
+.ticker {
+  position: relative;
+  overflow: hidden;
+  background: var(--gold);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 32s linear infinite;
+}
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.7rem 1.5rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1rem;
+  color: #2c2007;
+  white-space: nowrap;
+}
+.ticker-item .spark {
+  opacity: 0.6;
+}
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 .hero-side {
   position: relative;
@@ -141,31 +183,47 @@
 .quick-card {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 1.3rem 1.3rem 1.1rem;
+  border-radius: 14px;
+  padding: 1.6rem 1.5rem 1.4rem;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.7rem;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 .quick-card:hover {
   border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px -18px rgba(36, 27, 29, 0.28);
 }
 .quick-card .ico {
-  width: 38px;
-  height: 38px;
-  border-radius: 9px;
+  width: 52px;
+  height: 52px;
+  border-radius: 13px;
   background: var(--gold-soft);
   color: var(--gold);
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.quick-card .ico svg {
+  width: 26px;
+  height: 26px;
+}
+.quick-card .cat {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
 .quick-card .ttl {
+  font-family: var(--font-display);
   font-weight: 700;
-  font-size: 0.98rem;
+  font-size: 1.2rem;
 }
 .quick-card .dsc {
-  font-size: 0.83rem;
+  font-size: 0.88rem;
   color: var(--ink-soft);
 }
 .quick-card.external .ttl::after {
@@ -218,8 +276,8 @@
   color: var(--ink-soft);
 }
 .list-row .body h4 {
-  font-family: var(--font-body);
-  font-size: 0.94rem;
+  font-family: var(--font-display);
+  font-size: 1.08rem;
   font-weight: 700;
   margin: 0 0 0.2rem;
 }
@@ -264,7 +322,8 @@
   font-size: 1rem;
 }
 .event-row .body h4 {
-  font-size: 0.9rem;
+  font-family: var(--font-display);
+  font-size: 1.02rem;
   font-weight: 700;
   margin: 0 0 0.2rem;
 }
@@ -320,11 +379,11 @@
   opacity: 0.75;
 }
 .study-card h3 {
-  font-size: 1.2rem;
+  font-size: 1.45rem;
 }
 .study-card .count {
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: 2.1rem;
   font-weight: 600;
 }
 .study-card .count span {
@@ -389,13 +448,14 @@
   display: block;
 }
 .news-body h4 {
-  font-size: 0.95rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
   font-weight: 700;
   margin: 0 0 0.35rem;
   line-height: 1.35;
 }
 .news-body p {
   margin: 0;
-  font-size: 0.83rem;
+  font-size: 0.88rem;
   color: var(--ink-soft);
 }
