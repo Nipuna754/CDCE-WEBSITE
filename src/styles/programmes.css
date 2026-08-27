@@ -2,7 +2,7 @@
   padding: 3rem 0;
 }
 .prog-section:nth-of-type(odd) {
-  background: var(--surface);
+  background: var(--gold-soft);
 }
 .sec-head {
   display: flex;
@@ -11,11 +11,11 @@
   margin-bottom: 1.6rem;
 }
 .sec-head h2 {
-  font-size: 1.55rem;
+  font-size: 1.85rem;
 }
 .count-badge {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.92rem;
   font-weight: 600;
   background: var(--gold-soft);
   color: var(--gold);
@@ -32,24 +32,28 @@
   background: var(--bg);
   border: 1px solid var(--line);
   border-radius: 14px;
-  padding: 1.5rem 1.5rem 1.4rem;
+  padding: 1.8rem 1.7rem 1.6rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.1rem;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 .prog-section:nth-of-type(odd) .prog-card {
-  background: var(--surface-2);
+  background: var(--surface);
 }
 .prog-card:hover {
   border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px -18px rgba(36, 27, 29, 0.28);
 }
 .prog-card h3 {
-  font-size: 1.1rem;
+  font-family: var(--font-display);
+  font-size: 1.28rem;
   line-height: 1.35;
 }
 .prog-card p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.98rem;
   color: var(--ink-soft);
   flex: 1;
 }

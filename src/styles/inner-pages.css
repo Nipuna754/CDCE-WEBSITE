@@ -2,14 +2,18 @@
   padding: 3rem 0;
 }
 .content-section.alt {
+  background: var(--gold-soft);
+}
+.content-section.alt .card {
   background: var(--surface);
 }
 .content-section h2 {
-  font-size: 1.4rem;
+  font-size: 1.85rem;
   margin-bottom: 1rem;
 }
 .content-section p {
   color: var(--ink-soft);
+  font-size: 1.02rem;
   max-width: 65ch;
 }
 .two-col {
