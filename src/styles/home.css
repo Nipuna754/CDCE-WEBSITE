@@ -1,6 +1,7 @@
 .hero {
   position: relative;
-  background: linear-gradient(155deg, var(--brand-strong) 0%, var(--brand) 65%, var(--gold) 260%);
+  overflow: hidden;
+  background: linear-gradient(155deg, var(--brand-strong) 0%, var(--brand) 42%, #8f2c40 72%, var(--gold) 155%);
 }
 .hero-grid {
   position: relative;
@@ -27,7 +28,7 @@
 }
 .hero-tag {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--on-brand);
@@ -126,14 +127,14 @@
 }
 .notice-card .head-row h3 {
   font-family: var(--font-body);
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink-soft);
 }
 .notice-card .head-row a {
-  font-size: 0.8rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--accent);
 }
@@ -149,11 +150,11 @@
 }
 .notice-item .date {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   color: var(--gold);
 }
 .notice-item .t {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1.35;
 }

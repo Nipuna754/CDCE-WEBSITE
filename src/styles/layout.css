@@ -2,7 +2,7 @@
   background: var(--surface-2);
   border-bottom: 1px solid var(--line);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   color: var(--ink-soft);
 }
 .utility .wrap {
@@ -55,23 +55,23 @@ header.site {
 .brand-text .name {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.15rem;
   line-height: 1.25;
 }
 .brand-text .sub {
   font-family: var(--font-mono);
-  font-size: 0.64rem;
+  font-size: 0.7rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-soft);
 }
 nav.main {
   display: flex;
-  gap: 1.25rem;
+  gap: 1.35rem;
   flex-wrap: wrap;
 }
 nav.main a {
-  font-size: 0.86rem;
+  font-size: 0.98rem;
   font-weight: 600;
   color: var(--ink-soft);
   padding: 0.3rem 0;
@@ -219,9 +219,11 @@ footer.site {
 
 /* ---------- Page hero (flat band, used by interior pages) ---------- */
 .page-hero {
-  background: linear-gradient(160deg, var(--brand-strong), var(--brand));
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(150deg, var(--brand-strong) 0%, var(--brand) 45%, #8f2c40 75%, var(--gold) 165%);
   color: var(--on-brand);
-  padding: 3rem 0 2.6rem;
+  padding: 3.2rem 0 2.8rem;
 }
 .page-hero h1 {
   font-size: clamp(1.9rem, 4vw, 2.7rem);
@@ -233,15 +235,18 @@ footer.site {
   max-width: 60ch;
   color: #f3e4e6;
   margin-top: 0.9rem;
-  font-size: 1.02rem;
+  font-size: 1.12rem;
 }
 .page-hero .eyebrow {
   color: var(--on-brand);
   opacity: 0.85;
+  font-size: 0.8rem;
 }
 
 .cta-band {
-  background: linear-gradient(160deg, var(--brand-strong), var(--brand));
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(150deg, var(--brand-strong) 0%, var(--brand) 45%, #8f2c40 75%, var(--gold) 165%);
   color: var(--on-brand);
   padding: 2.6rem clamp(1.4rem, 4vw, 3rem);
   border-radius: 16px;

@@ -44,7 +44,7 @@ svg {
 }
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent);
@@ -55,8 +55,8 @@ svg {
   gap: 0.5rem;
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 0.92rem;
-  padding: 0.7rem 1.3rem;
+  font-size: 1rem;
+  padding: 0.75rem 1.4rem;
   border-radius: 7px;
   border: 1px solid transparent;
   cursor: pointer;
@@ -149,6 +149,23 @@ svg {
   border-color: var(--gold);
   transform: translateY(-3px);
   box-shadow: 0 14px 28px -18px rgba(36, 27, 29, 0.28);
+}
+
+/* Dynamic maroon treatment: a soft light highlight plus subtle film grain,
+   layered over any solid brand-color panel (home hero, page-hero, CTA band)
+   so it reads as textured depth rather than one flat fill. */
+.hero::after,
+.page-hero::after,
+.cta-band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(900px 460px at 86% -18%, rgba(255, 255, 255, 0.5), transparent 62%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: cover, 140px 140px;
+  mix-blend-mode: overlay;
+  opacity: 0.22;
+  pointer-events: none;
 }
 
 .eyebrow-terracotta {
