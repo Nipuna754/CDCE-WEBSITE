@@ -43,20 +43,29 @@
   border-radius: 50%;
   background: var(--gold);
 }
-.hero-main h1 {
-  font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+.hero-headline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05em;
   color: #fff;
-  max-width: 21ch;
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.25);
 }
-.hero-main h1 em {
+.hero-headline span {
+  font-size: clamp(2.3rem, 6vw, 4.4rem);
+  font-weight: 700;
+  line-height: 1.02;
+}
+.hero-headline em {
   font-style: italic;
+  font-weight: 500;
   color: var(--gold);
+  font-size: clamp(2.5rem, 6.4vw, 4.7rem);
+  line-height: 1.02;
 }
 .hero-main p {
   max-width: 50ch;
   color: #f3e4e6;
-  margin: 0;
+  margin: 0.6rem 0 0;
   font-size: 1.1rem;
 }
 .hero-cta {
@@ -64,6 +73,30 @@
   gap: 0.75rem;
   flex-wrap: wrap;
   margin-top: 0.4rem;
+}
+.hero-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.4rem;
+  margin-top: 1.6rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.hero-highlights span {
+  position: relative;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  color: #f3e4e6;
+}
+.hero-highlights span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
 }
 
 /* Auto-scrolling programme ticker */
@@ -162,6 +195,80 @@
   color: var(--accent);
 }
 
+/* Our Commitment */
+.commitment {
+  padding: 3.5rem 0;
+  background: var(--surface);
+}
+.commitment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+@media (max-width: 800px) {
+  .commitment-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+.commitment-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.ci-num {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--gold);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.2rem;
+}
+.commitment-item h3 {
+  font-size: 1.35rem;
+}
+.commitment-item p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  max-width: 38ch;
+}
+
+/* Stats band */
+.stats {
+  background: linear-gradient(150deg, var(--brand-strong) 0%, var(--brand) 55%, #8f2c40 100%);
+  padding: 2.6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  text-align: center;
+}
+@media (max-width: 700px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--on-brand);
+  opacity: 0.85;
+  margin-top: 0.3rem;
+}
+
 /* Quick access */
 .quick {
   padding: 3rem 0 3rem;
@@ -204,7 +311,7 @@
   width: 52px;
   height: 52px;
   border-radius: 13px;
-  background: var(--gold-soft);
+  background: var(--brand);
   color: var(--gold);
   display: flex;
   align-items: center;
@@ -338,14 +445,23 @@
   color: var(--ink-soft);
 }
 
-/* Study with CDCE */
+/* Study with CDCE — full-bleed photo section */
 .study {
-  padding: 1rem 0 3rem;
+  position: relative;
+  padding: 4.5rem 0;
+  background: linear-gradient(160deg, rgba(90, 26, 36, 0.93), rgba(74, 21, 30, 0.89)), url("/images/study-degree.jpg");
+  background-size: cover;
+  background-position: center 30%;
+}
+.study .section-head h2 {
+  color: #fff;
+  max-width: 22ch;
 }
 .study-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.1rem;
+  gap: 1.3rem;
+  margin-top: 1rem;
 }
 @media (max-width: 800px) {
   .study-grid {
@@ -356,67 +472,54 @@
   position: relative;
   border-radius: 14px;
   padding: 1.9rem 1.8rem;
-  min-height: 235px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 1.2rem;
-  border: 1px solid var(--line);
-  background-size: cover;
-  background-position: center;
+  gap: 0.6rem;
+  background: var(--surface);
+  border: 1px solid transparent;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 20px 40px -22px rgba(0, 0, 0, 0.45);
 }
 .study-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 28px -18px rgba(36, 27, 29, 0.28);
+  transform: translateY(-4px);
 }
 .study-card:active {
   transform: translateY(-1px) scale(0.99);
 }
-.study-card.tier-degree {
-  background-image: linear-gradient(160deg, rgba(90, 26, 36, 0.9), rgba(122, 35, 49, 0.74)), url("/images/study-degree.jpg");
-  color: var(--on-brand);
-  border-color: var(--brand);
-}
-.study-card.tier-diploma {
-  background-image: linear-gradient(160deg, var(--veil-strong), var(--veil-strong)), url("/images/news-diploma.jpg");
-}
-.study-card.tier-cert {
-  background-image: linear-gradient(160deg, var(--veil-soft), var(--veil-soft)), url("/images/news-orientation.jpg");
-}
 .study-card .lvl {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  opacity: 0.75;
+  color: var(--terracotta);
 }
 .study-card h3 {
-  font-size: 1.45rem;
+  font-size: 1.4rem;
+  margin-top: 0.1rem;
 }
-.study-card .count {
+.study-card p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  flex: 1;
+}
+.study-card-foot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 0.6rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+}
+.study-card-foot .count {
   font-family: var(--font-display);
-  font-size: 2.1rem;
-  font-weight: 600;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--brand);
 }
-.study-card .count span {
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  font-weight: 600;
-  opacity: 0.7;
-  margin-left: 0.3rem;
-}
-.study-card .cta-link {
+.study-card-foot .cta-link {
   font-size: 0.85rem;
   font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-.study-card.tier-degree .cta-link {
-  color: var(--on-brand);
-}
-.study-card:not(.tier-degree) .cta-link {
   color: var(--accent);
 }
 

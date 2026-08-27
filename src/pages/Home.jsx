@@ -155,8 +155,10 @@ export default function Home() {
             <div className="hero-tag">
               <span className="dot" /> Admissions open · closes 30 August 2026
             </div>
-            <h1>
-              Distance and continuing education, <em>on your schedule.</em>
+            <h1 className="hero-headline">
+              <span>Distance Learning</span>
+              <em>Without Limits</em>
+              <span>Since 1964</span>
             </h1>
             <p>
               Degree, diploma and certificate programmes taught in Sinhala, Tamil and English — open to learners
@@ -169,6 +171,11 @@ export default function Home() {
               <Link className="btn btn-ghost-invert" to="/programmes">
                 Explore programmes
               </Link>
+            </div>
+            <div className="hero-highlights">
+              <span>UGC-recognised external degrees</span>
+              <span>Interactive LMS &amp; online MIS</span>
+              <span>Admissions open · 2026</span>
             </div>
           </div>
           <div className="hero-side fade-up-delay-1">
@@ -201,6 +208,47 @@ export default function Home() {
           ))}
         </div>
       </div>
+
+      <section className="commitment">
+        <div className="wrap commitment-grid">
+          <div className="commitment-item">
+            <div className="ci-num">01</div>
+            <h3>Equal opportunity</h3>
+            <p>We open the doors of higher education to every aspiring learner, regardless of geography or background.</p>
+          </div>
+          <div className="commitment-item">
+            <div className="ci-num">02</div>
+            <h3>Trilingual reach</h3>
+            <p>Programmes delivered in Sinhala, Tamil and English, so that learning belongs to every community.</p>
+          </div>
+          <div className="commitment-item">
+            <div className="ci-num">03</div>
+            <h3>Lifelong learning</h3>
+            <p>From external degrees to professional diplomas and short courses, we support continuing education at every stage.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="stats">
+        <div className="wrap stats-grid">
+          <div className="stat-item">
+            <div className="stat-num">1964</div>
+            <div className="stat-label">External degrees since</div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-num">2007</div>
+            <div className="stat-label">CDCE established</div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-num">9</div>
+            <div className="stat-label">Academic programmes</div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-num">3</div>
+            <div className="stat-label">Languages of study</div>
+          </div>
+        </div>
+      </section>
 
       <section className="quick">
         <div className="wrap">
@@ -271,43 +319,39 @@ export default function Home() {
       <section className="study">
         <div className="wrap">
           <div className="section-head">
-            <h2>Study with CDCE</h2>
+            <div>
+              <div className="eyebrow" style={{ color: "var(--on-brand)", opacity: 0.85 }}>
+                Study with CDCE
+              </div>
+              <h2>Choose your path to a recognised qualification</h2>
+            </div>
           </div>
           <div className="study-grid">
-            <Link to="/programmes" className="study-card tier-degree">
-              <div>
-                <div className="lvl">Degrees</div>
-                <h3>External degree programmes</h3>
-              </div>
-              <div>
-                <div className="count">
-                  2 <span>programmes — BA, BBA</span>
-                </div>
-                <span className="cta-link">View degree programmes →</span>
+            <Link to="/programmes" className="study-card">
+              <div className="lvl">Degrees</div>
+              <h3>Bachelor's degrees</h3>
+              <p>External BA &amp; BBA degrees delivered in three languages.</p>
+              <div className="study-card-foot">
+                <span className="count">2</span>
+                <span className="cta-link">Programmes →</span>
               </div>
             </Link>
-            <Link to="/programmes" className="study-card tier-diploma">
-              <div>
-                <div className="lvl">Diplomas</div>
-                <h3>Professional diploma programmes</h3>
-              </div>
-              <div>
-                <div className="count">
-                  5 <span>diplomas</span>
-                </div>
-                <span className="cta-link">View diploma programmes →</span>
+            <Link to="/programmes" className="study-card">
+              <div className="lvl">Diplomas</div>
+              <h3>Professional diplomas</h3>
+              <p>Diplomas spanning management, library science, IT and lab technology.</p>
+              <div className="study-card-foot">
+                <span className="count">5</span>
+                <span className="cta-link">Programmes →</span>
               </div>
             </Link>
-            <Link to="/programmes" className="study-card tier-cert">
-              <div>
-                <div className="lvl">Certificates</div>
-                <h3>Short certificate courses</h3>
-              </div>
-              <div>
-                <div className="count">
-                  2 <span>certificate courses</span>
-                </div>
-                <span className="cta-link">View certificate courses →</span>
+            <Link to="/programmes" className="study-card">
+              <div className="lvl">Certificates</div>
+              <h3>Short certificates</h3>
+              <p>Short skill-building certificate and language courses.</p>
+              <div className="study-card-foot">
+                <span className="count">2</span>
+                <span className="cta-link">Programmes →</span>
               </div>
             </Link>
           </div>

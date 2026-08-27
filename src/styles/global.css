@@ -164,7 +164,8 @@ button.card:active {
    so it reads as textured depth rather than one flat fill. */
 .hero::after,
 .page-hero::after,
-.cta-band::after {
+.cta-band::after,
+.stats::after {
   content: "";
   position: absolute;
   inset: 0;
