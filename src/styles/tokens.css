@@ -1,0 +1,52 @@
+:root {
+  --bg: #faf8f5;
+  --surface: #ffffff;
+  --surface-2: #f2ede7;
+  --ink: #241b1d;
+  --ink-soft: #6b5d5f;
+  --ink-faint: #95898a;
+  --line: #e6dfd9;
+  --accent: #7a2331;
+  --accent-strong: #5c1a25;
+  --accent-soft: #f3e2e4;
+  --gold: #96702a;
+  --gold-soft: #f1e6cf;
+  --on-accent: #fbeef0;
+  --focus: #2f6fb3;
+
+  /* Brand fill: the institutional maroon used for solid panels (hero, CTA
+     bands, primary buttons). Stays constant across themes — unlike --accent,
+     which intentionally lightens in dark mode for text/link legibility. */
+  --brand: #7a2331;
+  --brand-strong: #5c1a25;
+  --on-brand: #fbeef0;
+  --veil-strong: rgba(255, 255, 255, 0.9);
+  --veil-soft: rgba(242, 237, 231, 0.84);
+
+  --font-display: "Lora", Georgia, serif;
+  --font-body: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+/* Dark mode is intentionally NOT wired to prefers-color-scheme — this site
+   always renders the light institutional look below, regardless of visitor
+   system theme. The rule below is kept dormant for a possible future manual
+   toggle (would need a UI control setting data-theme="dark" to activate). */
+:root[data-theme="dark"] {
+  --bg: #1b1415;
+  --surface: #221a1b;
+  --surface-2: #2a2122;
+  --ink: #f1e9e6;
+  --ink-soft: #c2adaf;
+  --ink-faint: #8d7a7c;
+  --line: #3a2d2e;
+  --accent: #e08a97;
+  --accent-strong: #eaa5b0;
+  --accent-soft: #3a2226;
+  --gold: #d8b465;
+  --gold-soft: #3a3022;
+  --on-accent: #2a1216;
+  --focus: #7fb2e8;
+  --veil-strong: rgba(34, 26, 27, 0.88);
+  --veil-soft: rgba(42, 33, 34, 0.84);
+}
