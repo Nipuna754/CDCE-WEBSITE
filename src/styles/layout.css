@@ -85,8 +85,15 @@ header.site {
 .brand-text .name {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.4rem;
-  line-height: 1.15;
+  font-size: 1.1rem;
+  line-height: 1.25;
+  max-width: 32ch;
+}
+@media (max-width: 480px) {
+  .brand-text .name {
+    font-size: 0.98rem;
+    max-width: 22ch;
+  }
 }
 .brand-text .sub {
   font-family: var(--font-mono);
@@ -95,13 +102,23 @@ header.site {
   text-transform: uppercase;
   color: var(--ink-soft);
 }
+
+/* Nav gets its own full-width row below the branding row, so it never has to
+   compete with the long institution name for horizontal space. */
+.nav-bar {
+  background: var(--surface-2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
 nav.main {
   display: flex;
   align-items: center;
-  gap: 1.1rem;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.5rem;
+  padding: 0.7rem 0;
 }
 nav.main a {
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   font-weight: 600;
   color: var(--ink-soft);
   padding: 0.3rem 0;
@@ -143,8 +160,8 @@ nav.main a.active {
 .menu-toggle {
   display: none;
 }
-@media (max-width: 1180px) {
-  nav.main {
+@media (max-width: 640px) {
+  .nav-bar {
     display: none;
   }
   .menu-toggle {
@@ -162,7 +179,7 @@ nav.main a.active {
 .mobile-nav-wrap > .mobile-nav {
   overflow: hidden;
 }
-@media (min-width: 1181px) {
+@media (min-width: 641px) {
   .mobile-nav-wrap {
     display: none;
   }
@@ -170,21 +187,10 @@ nav.main a.active {
 .mobile-nav {
   border-top: 1px solid var(--line);
   background: var(--surface);
-  padding: 1.2rem clamp(1rem, 4vw, 2.5rem) 1.4rem;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.2rem 1.5rem;
+  padding: 0.6rem clamp(1rem, 4vw, 2.5rem) 1rem;
+  display: flex;
+  flex-direction: column;
   box-shadow: 0 18px 32px -20px rgba(36, 27, 29, 0.3);
-}
-@media (max-width: 900px) {
-  .mobile-nav {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-@media (max-width: 520px) {
-  .mobile-nav {
-    grid-template-columns: 1fr;
-  }
 }
 .mobile-nav a {
   padding: 0.65rem 0.4rem;
@@ -192,8 +198,12 @@ nav.main a.active {
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--ink-soft);
+  border-bottom: 1px solid var(--line);
   border-radius: 6px;
   transition: color 0.15s ease, background-color 0.15s ease;
+}
+.mobile-nav a:last-child {
+  border-bottom: none;
 }
 .mobile-nav a:active {
   background: var(--surface-2);

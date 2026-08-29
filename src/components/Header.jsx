@@ -35,18 +35,10 @@ export default function Header() {
           <NavLink to="/" className="brand">
             <img className="crest" src="/images/crest.png" alt="CDCE crest" />
             <div className="brand-text">
-              <div className="name">CDCE</div>
+              <div className="name">Centre for Distance and Continuing Education</div>
               <div className="sub">University of Peradeniya</div>
             </div>
           </NavLink>
-
-          <nav className="main">
-            {navLinks.map((link) => (
-              <NavLink key={link.to} to={link.to} end={link.to === "/"}>
-                {link.label}
-              </NavLink>
-            ))}
-          </nav>
 
           <div className="head-actions">
             <button className="icon-btn" aria-label="Search">
@@ -61,6 +53,16 @@ export default function Header() {
               {open ? "✕" : "≡"}
             </button>
           </div>
+        </div>
+
+        <div className="nav-bar">
+          <nav className="main wrap">
+            {navLinks.map((link) => (
+              <NavLink key={link.to} to={link.to} end={link.to === "/"}>
+                {link.label}
+              </NavLink>
+            ))}
+          </nav>
         </div>
 
         <div className="mobile-nav-wrap" data-open={open}>
