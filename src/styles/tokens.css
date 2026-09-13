@@ -4,7 +4,7 @@
   --surface-2: #f2ede7;
   --ink: #241b1d;
   --ink-soft: #6b5d5f;
-  --ink-faint: #95898a;
+  --ink-faint: #786a6c;
   --line: #e6dfd9;
   --accent: #7a2331;
   --accent-strong: #5c1a25;
@@ -12,6 +12,7 @@
   --gold: #96702a;
   --gold-soft: #f1e6cf;
   --on-accent: #fbeef0;
+  --on-gold: #000000;
   --focus: #2f6fb3;
 
   /* Brand fill: the institutional maroon used for solid panels (hero, CTA

@@ -122,7 +122,7 @@
   font-family: var(--font-display);
   font-style: italic;
   font-size: 1rem;
-  color: #2c2007;
+  color: var(--on-gold);
   white-space: nowrap;
 }
 .ticker-item .spark {
@@ -421,7 +421,7 @@
 }
 .event-row .datebox .m {
   background: var(--gold);
-  color: #2c2007;
+  color: var(--on-gold);
   font-size: 0.62rem;
   font-weight: 700;
   text-transform: uppercase;

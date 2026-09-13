@@ -75,7 +75,7 @@ svg {
 }
 .btn-gold {
   background: var(--gold);
-  color: #2c2007;
+  color: var(--on-gold);
 }
 .btn-gold:hover {
   filter: brightness(1.06);
