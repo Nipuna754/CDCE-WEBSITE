@@ -61,7 +61,7 @@ export default function Header() {
           </NavLink>
 
           <div className="head-actions">
-            <button className="icon-btn" aria-label="Search" title="Search (⌘K)" onClick={() => setSearchOpen(true)}>
+            <button className="icon-btn search-btn" aria-label="Search" title="Search (⌘K)" onClick={() => setSearchOpen(true)}>
               ⌕
             </button>
             <button
