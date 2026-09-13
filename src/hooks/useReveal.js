@@ -1,7 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
-// Reveals an element with a fade/slide-up once it scrolls into view.
-// Fires once — re-scrolling past it does not re-hide or re-trigger it.
+// Reveals an element with a fade/slide-up as it scrolls into view, and
+// re-hides/replays it each time it leaves and re-enters — matching
+// eng.pdn.ac.lk's actual default (its entrance.js resets and replays on
+// scroll-back unless "once" is explicitly set). Safe for
+// prefers-reduced-motion: the global CSS override already zeroes
+// transition/animation duration and delay, so a replay there just flips
+// the end state instantly with no visible motion, repeatedly.
 export default function useReveal(options) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -16,12 +21,7 @@ export default function useReveal(options) {
     }
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
+      ([entry]) => setVisible(entry.isIntersecting),
       { threshold: 0, rootMargin: "0px 0px 100px 0px", ...options }
     );
 
