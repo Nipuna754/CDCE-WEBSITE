@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import PageHero from "../components/PageHero";
 import { faqs } from "../data/content";
 import "../styles/inner-pages.css";
@@ -7,6 +7,9 @@ function FaqItem({ q, a, defaultOpen }) {
   const [open, setOpen] = useState(defaultOpen);
   const contentRef = useRef(null);
   const [maxHeight, setMaxHeight] = useState(0);
+  const uid = useId();
+  const buttonId = `${uid}-btn`;
+  const panelId = `${uid}-panel`;
 
   useEffect(() => {
     if (!contentRef.current) return;
@@ -15,7 +18,7 @@ function FaqItem({ q, a, defaultOpen }) {
 
   return (
     <div className="faq-item card">
-      <button className="faq-summary" onClick={() => setOpen((v) => !v)} aria-expanded={open}>
+      <button id={buttonId} className="faq-summary" onClick={() => setOpen((v) => !v)} aria-expanded={open} aria-controls={panelId}>
         <span>{q}</span>
         <svg
           className="faq-chevron"
@@ -33,7 +36,7 @@ function FaqItem({ q, a, defaultOpen }) {
           <path d="M6 9l6 6 6-6" />
         </svg>
       </button>
-      <div className="faq-collapse" style={{ maxHeight }}>
+      <div id={panelId} className="faq-collapse" style={{ maxHeight }} role="region" aria-labelledby={buttonId}>
         <p className="faq-answer" ref={contentRef}>
           {a}
         </p>

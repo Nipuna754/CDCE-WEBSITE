@@ -384,6 +384,10 @@
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--accent-soft);
 }
+.form-row input[aria-invalid="true"],
+.form-row textarea[aria-invalid="true"] {
+  border-color: var(--accent);
+}
 .form-error {
   font-size: 0.8rem;
   color: var(--accent);

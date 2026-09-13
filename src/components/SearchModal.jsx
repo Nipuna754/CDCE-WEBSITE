@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { searchIndex } from "../data/content";
 
@@ -22,6 +22,9 @@ export default function SearchModal({ open, onClose }) {
   const inputRef = useRef(null);
   const listRef = useRef(null);
   const navigate = useNavigate();
+  const uid = useId();
+  const listId = `${uid}-list`;
+  const optionId = (i) => `${uid}-opt-${i}`;
 
   const results = useMemo(() => {
     const q = query.trim();
@@ -94,6 +97,10 @@ export default function SearchModal({ open, onClose }) {
           <input
             ref={inputRef}
             type="text"
+            role="combobox"
+            aria-expanded={results.length > 0}
+            aria-controls={listId}
+            aria-activedescendant={results[activeIndex] ? optionId(activeIndex) : undefined}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={onKeyDown}
@@ -103,12 +110,13 @@ export default function SearchModal({ open, onClose }) {
           />
           <kbd>Esc</kbd>
         </div>
-        <ul className="search-results" ref={listRef} role="listbox">
+        <ul className="search-results" ref={listRef} id={listId} role="listbox">
           {results.length === 0 && <li className="search-empty">No matches for "{query}"</li>}
           {results.map((item, i) => (
-            <li key={item.to + item.label} role="option" aria-selected={i === activeIndex}>
+            <li key={item.to + item.label} id={optionId(i)} role="option" aria-selected={i === activeIndex}>
               <button
                 type="button"
+                tabIndex={-1}
                 className={i === activeIndex ? "active" : ""}
                 onMouseEnter={() => setActiveIndex(i)}
                 onClick={() => go(item)}

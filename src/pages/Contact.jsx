@@ -45,13 +45,37 @@ function ContactForm() {
     <form className="contact-form" onSubmit={handleSubmit} noValidate>
       <div className="form-row">
         <label htmlFor="cf-name">Name</label>
-        <input id="cf-name" type="text" value={values.name} onChange={update("name")} placeholder="Your full name" />
-        {errors.name && <span className="form-error">{errors.name}</span>}
+        <input
+          id="cf-name"
+          type="text"
+          value={values.name}
+          onChange={update("name")}
+          placeholder="Your full name"
+          aria-invalid={!!errors.name}
+          aria-describedby={errors.name ? "cf-name-error" : undefined}
+        />
+        {errors.name && (
+          <span className="form-error" id="cf-name-error" role="alert">
+            {errors.name}
+          </span>
+        )}
       </div>
       <div className="form-row">
         <label htmlFor="cf-email">Email</label>
-        <input id="cf-email" type="email" value={values.email} onChange={update("email")} placeholder="you@example.com" />
-        {errors.email && <span className="form-error">{errors.email}</span>}
+        <input
+          id="cf-email"
+          type="email"
+          value={values.email}
+          onChange={update("email")}
+          placeholder="you@example.com"
+          aria-invalid={!!errors.email}
+          aria-describedby={errors.email ? "cf-email-error" : undefined}
+        />
+        {errors.email && (
+          <span className="form-error" id="cf-email-error" role="alert">
+            {errors.email}
+          </span>
+        )}
       </div>
       <div className="form-row">
         <label htmlFor="cf-subject">Subject</label>
@@ -59,8 +83,20 @@ function ContactForm() {
       </div>
       <div className="form-row">
         <label htmlFor="cf-message">Message</label>
-        <textarea id="cf-message" rows="5" value={values.message} onChange={update("message")} placeholder="How can we help?" />
-        {errors.message && <span className="form-error">{errors.message}</span>}
+        <textarea
+          id="cf-message"
+          rows="5"
+          value={values.message}
+          onChange={update("message")}
+          placeholder="How can we help?"
+          aria-invalid={!!errors.message}
+          aria-describedby={errors.message ? "cf-message-error" : undefined}
+        />
+        {errors.message && (
+          <span className="form-error" id="cf-message-error" role="alert">
+            {errors.message}
+          </span>
+        )}
       </div>
       <button type="submit" className="btn btn-primary">
         Send message
