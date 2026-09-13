@@ -213,3 +213,14 @@ export const boardOfManagement = [
   "Representative, Faculty of Arts",
   "Representative, Faculty of Management",
 ];
+
+// Flat index for the header search — every page plus the specific things
+// people actually search for (a named programme, a notice, a question).
+export const searchIndex = [
+  ...navLinks.map((l) => ({ label: l.label, to: l.to, group: "Pages" })),
+  ...degreeProgrammes.map((p) => ({ label: p.name, to: "/programmes", group: "Programmes" })),
+  ...diplomaProgrammes.map((p) => ({ label: p.name, to: "/programmes", group: "Programmes" })),
+  ...certificateProgrammes.map((p) => ({ label: p.name, to: "/programmes", group: "Programmes" })),
+  ...notices.map((n) => ({ label: n.title, to: "/notices", group: "Notices" })),
+  ...faqs.map((f) => ({ label: f.q, to: "/faqs", group: "FAQs" })),
+];

@@ -1,6 +1,73 @@
+import { useState } from "react";
 import PageHero from "../components/PageHero";
 import { contact } from "../data/content";
 import "../styles/inner-pages.css";
+
+function ContactForm() {
+  const [values, setValues] = useState({ name: "", email: "", subject: "", message: "" });
+  const [errors, setErrors] = useState({});
+  const [sent, setSent] = useState(false);
+
+  const update = (field) => (e) => setValues((v) => ({ ...v, [field]: e.target.value }));
+
+  const validate = () => {
+    const next = {};
+    if (!values.name.trim()) next.name = "Enter your name.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) next.email = "Enter a valid email address.";
+    if (!values.message.trim()) next.message = "Enter a message.";
+    setErrors(next);
+    return Object.keys(next).length === 0;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!validate()) return;
+    const subject = values.subject.trim() || `Message from ${values.name}`;
+    const body = `${values.message}\n\n— ${values.name} (${values.email})`;
+    window.location.href = `mailto:${contact.emails[0]}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setSent(true);
+  };
+
+  if (sent) {
+    return (
+      <div className="form-confirm">
+        <div className="form-confirm-icon">✓</div>
+        <h3>Opening your email app</h3>
+        <p>Your message to {contact.emails[0]} is ready to send from there. Didn't open? Email us directly instead.</p>
+        <button className="btn btn-ghost" onClick={() => setSent(false)}>
+          Write another message
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <form className="contact-form" onSubmit={handleSubmit} noValidate>
+      <div className="form-row">
+        <label htmlFor="cf-name">Name</label>
+        <input id="cf-name" type="text" value={values.name} onChange={update("name")} placeholder="Your full name" />
+        {errors.name && <span className="form-error">{errors.name}</span>}
+      </div>
+      <div className="form-row">
+        <label htmlFor="cf-email">Email</label>
+        <input id="cf-email" type="email" value={values.email} onChange={update("email")} placeholder="you@example.com" />
+        {errors.email && <span className="form-error">{errors.email}</span>}
+      </div>
+      <div className="form-row">
+        <label htmlFor="cf-subject">Subject</label>
+        <input id="cf-subject" type="text" value={values.subject} onChange={update("subject")} placeholder="What's this about?" />
+      </div>
+      <div className="form-row">
+        <label htmlFor="cf-message">Message</label>
+        <textarea id="cf-message" rows="5" value={values.message} onChange={update("message")} placeholder="How can we help?" />
+        {errors.message && <span className="form-error">{errors.message}</span>}
+      </div>
+      <button type="submit" className="btn btn-primary">
+        Send message
+      </button>
+    </form>
+  );
+}
 
 export default function Contact() {
   return (
@@ -51,6 +118,19 @@ export default function Contact() {
               src="https://www.openstreetmap.org/export/embed.html?bbox=80.582%2C7.252%2C80.612%2C7.268&layer=mapnik&marker=7.2599%2C80.5977"
               loading="lazy"
             />
+          </div>
+        </div>
+      </section>
+
+      <section className="content-section alt">
+        <div className="wrap">
+          <div className="form-section-head">
+            <div className="eyebrow">Send a message</div>
+            <h2>We read everything</h2>
+            <p>Fill this in and it opens a pre-filled email in your own mail app — nothing is sent from this page directly.</p>
+          </div>
+          <div className="card contact-form-card">
+            <ContactForm />
           </div>
         </div>
       </section>

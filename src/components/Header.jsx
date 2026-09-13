@@ -1,9 +1,29 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { navLinks, externalSystems } from "../data/content";
+import SearchModal from "./SearchModal";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const mobileNavRef = useRef(null);
+  const [mobileNavHeight, setMobileNavHeight] = useState(0);
+
+  useEffect(() => {
+    if (!mobileNavRef.current) return;
+    setMobileNavHeight(open ? mobileNavRef.current.scrollHeight : 0);
+  }, [open]);
+
+  useEffect(() => {
+    const onKeyDown = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        setSearchOpen(true);
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, []);
 
   return (
     <>
@@ -41,7 +61,7 @@ export default function Header() {
           </NavLink>
 
           <div className="head-actions">
-            <button className="icon-btn" aria-label="Search">
+            <button className="icon-btn" aria-label="Search" title="Search (⌘K)" onClick={() => setSearchOpen(true)}>
               ⌕
             </button>
             <button
@@ -65,8 +85,8 @@ export default function Header() {
           </nav>
         </div>
 
-        <div className="mobile-nav-wrap" data-open={open}>
-          <nav className="mobile-nav">
+        <div className="mobile-nav-wrap" style={{ maxHeight: mobileNavHeight }}>
+          <nav className="mobile-nav" ref={mobileNavRef}>
             {navLinks.map((link) => (
               <NavLink key={link.to} to={link.to} end={link.to === "/"} onClick={() => setOpen(false)}>
                 {link.label}
@@ -75,6 +95,8 @@ export default function Header() {
           </nav>
         </div>
       </header>
+
+      <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
   );
 }
