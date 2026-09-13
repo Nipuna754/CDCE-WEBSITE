@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Reveal from "../components/Reveal";
 import {
   notices,
   events,
@@ -209,7 +210,7 @@ export default function Home() {
         </div>
       </div>
 
-      <section className="commitment">
+      <Reveal as="section" className="commitment">
         <div className="wrap commitment-grid">
           <div className="commitment-item">
             <div className="ci-num">01</div>
@@ -227,9 +228,9 @@ export default function Home() {
             <p>From external degrees to professional diplomas and short courses, we support continuing education at every stage.</p>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="stats">
+      <Reveal as="section" className="stats">
         <div className="wrap stats-grid">
           <div className="stat-item">
             <div className="stat-num">1964</div>
@@ -248,9 +249,9 @@ export default function Home() {
             <div className="stat-label">Languages of study</div>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="quick">
+      <Reveal as="section" className="quick">
         <div className="wrap">
           <div className="section-head">
             <h2>Quick access</h2>
@@ -261,9 +262,9 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="split wrap">
+      <Reveal as="section" className="split wrap">
         <div>
           <div className="section-head">
             <h2>Notices and announcements</h2>
@@ -314,9 +315,9 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="study">
+      <Reveal as="section" className="study">
         <div className="wrap">
           <div className="section-head">
             <div>
@@ -356,9 +357,9 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="news">
+      <Reveal as="section" className="news">
         <div className="wrap">
           <div className="section-head">
             <h2>News and highlights</h2>
@@ -381,7 +382,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
     </>
   );
 }

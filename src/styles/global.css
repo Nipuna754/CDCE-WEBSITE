@@ -207,6 +207,18 @@ button.card:active {
   animation: fade-up 0.6s ease 0.24s both;
 }
 
+/* Scroll-reveal: sections fade/slide up once as they enter the viewport.
+   Used via the <Reveal> wrapper component + useReveal hook. */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
