@@ -12,7 +12,7 @@ export default function Downloads() {
 
       <Reveal as="section" className="content-section">
         <div className="wrap">
-          <div className="downloads-grid">
+          <div className="downloads-grid stagger">
             {downloadCategories.map((cat) => (
               <div className="download-cat card" key={cat.title}>
                 <h3>{cat.title}</h3>

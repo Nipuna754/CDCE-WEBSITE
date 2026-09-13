@@ -34,7 +34,7 @@ export default function NewsEvents() {
       <Reveal as="section" className="content-section alt">
         <div className="wrap">
           <h2>Recent news</h2>
-          <div className="news-grid">
+          <div className="news-grid stagger stagger-zoom">
             {news.map((item) => (
               <div className="news-card card" key={item.title}>
                 <img className="news-thumb" src={item.image} alt="" />

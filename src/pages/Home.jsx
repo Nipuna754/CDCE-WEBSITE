@@ -211,7 +211,7 @@ export default function Home() {
       </div>
 
       <Reveal as="section" className="commitment">
-        <div className="wrap commitment-grid">
+        <div className="wrap commitment-grid stagger">
           <div className="commitment-item">
             <div className="ci-num">01</div>
             <h3>Equal opportunity</h3>
@@ -231,7 +231,7 @@ export default function Home() {
       </Reveal>
 
       <Reveal as="section" className="stats">
-        <div className="wrap stats-grid">
+        <div className="wrap stats-grid stagger stagger-zoom">
           <div className="stat-item">
             <div className="stat-num">1964</div>
             <div className="stat-label">External degrees since</div>
@@ -256,7 +256,7 @@ export default function Home() {
           <div className="section-head">
             <h2>Quick access</h2>
           </div>
-          <div className="quick-grid">
+          <div className="quick-grid stagger">
             {quickLinks.map((item) => (
               <QuickCard item={item} key={item.title} />
             ))}
@@ -264,15 +264,15 @@ export default function Home() {
         </div>
       </Reveal>
 
-      <Reveal as="section" className="split wrap">
-        <div>
+      <section className="split wrap">
+        <Reveal as="div" className="reveal-left">
           <div className="section-head">
             <h2>Notices and announcements</h2>
             <Link className="see-all" to="/notices">
               Browse all →
             </Link>
           </div>
-          <div className="list-card card">
+          <div className="list-card card stagger">
             {notices.map((n) => {
               const { day, month } = formatDay(n.date);
               return (
@@ -292,15 +292,15 @@ export default function Home() {
               );
             })}
           </div>
-        </div>
-        <div>
+        </Reveal>
+        <Reveal as="div" className="reveal-right" delay={100}>
           <div className="section-head">
             <h2>Upcoming events</h2>
             <Link className="see-all" to="/news-events">
               Calendar →
             </Link>
           </div>
-          <div className="list-card card">
+          <div className="list-card card stagger">
             {events.map((e) => (
               <div className="event-row" key={e.title}>
                 <div className="datebox">
@@ -314,10 +314,10 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
-      </Reveal>
+        </Reveal>
+      </section>
 
-      <Reveal as="section" className="study">
+      <Reveal as="section" className="study reveal-zoom">
         <div className="wrap">
           <div className="section-head">
             <div>
@@ -327,7 +327,7 @@ export default function Home() {
               <h2>Choose your path to a recognised qualification</h2>
             </div>
           </div>
-          <div className="study-grid">
+          <div className="study-grid stagger">
             <Link to="/programmes" className="study-card">
               <div className="lvl">Degrees</div>
               <h3>Bachelor's degrees</h3>
@@ -367,7 +367,7 @@ export default function Home() {
               More news →
             </Link>
           </div>
-          <div className="news-grid">
+          <div className="news-grid stagger stagger-zoom">
             {news.map((item) => (
               <Link className="news-card card" to="/news-events" key={item.title}>
                 <img className="news-thumb" src={item.image} alt="" />

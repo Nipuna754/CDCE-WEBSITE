@@ -11,7 +11,7 @@ function ProgrammeSection({ title, count, items }) {
           <h2>{title}</h2>
           <span className="count-badge">{count}</span>
         </div>
-        <div className="prog-grid">
+        <div className="prog-grid stagger">
           {items.map((p) => (
             <div className="prog-card" key={p.slug}>
               <h3>{p.name}</h3>
@@ -41,7 +41,7 @@ export default function Programmes() {
       <ProgrammeSection title="Diploma programmes" count={diplomaProgrammes.length} items={diplomaProgrammes} />
       <ProgrammeSection title="Certificate programmes" count={certificateProgrammes.length} items={certificateProgrammes} />
 
-      <Reveal className="cta-band">
+      <Reveal className="cta-band reveal-zoom">
         <div>
           <h2>Ready to apply?</h2>
           <p>New intake applications close 30 August 2026 — apply online in a few minutes.</p>

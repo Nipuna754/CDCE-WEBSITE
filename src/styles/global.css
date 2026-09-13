@@ -15,6 +15,7 @@ body {
   font-family: var(--font-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
 a {
   color: inherit;
@@ -177,6 +178,17 @@ button.card:active {
   pointer-events: none;
 }
 
+/* Bottom-left depth vignette on the homepage hero only — kept clear of the
+   shared top-right highlight above and the notice-card, both of which sit
+   in the same panel. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(1100px 600px at 10% 108%, rgba(0, 0, 0, 0.3), transparent 60%);
+  pointer-events: none;
+}
+
 .eyebrow-terracotta {
   font-family: var(--font-mono);
   font-size: 0.68rem;
@@ -208,15 +220,77 @@ button.card:active {
 }
 
 /* Scroll-reveal: sections fade/slide up once as they enter the viewport.
-   Used via the <Reveal> wrapper component + useReveal hook. */
+   Used via the <Reveal> wrapper component + useReveal hook. Uses the
+   standalone translate/scale properties (not transform) so it composes
+   with, rather than fights, existing hover-lift transforms on cards. */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  translate: 0 56px;
+  transition: opacity 0.6s var(--ease-entrance), translate 0.6s var(--ease-entrance), scale 0.6s var(--ease-entrance);
 }
 .reveal-visible {
   opacity: 1;
-  transform: translateY(0);
+  translate: 0 0;
+}
+
+/* Direction/scale variants — compound selectors so specificity (not
+   stylesheet order) decides the resting offset. */
+.reveal.reveal-left {
+  translate: -64px 0;
+}
+.reveal.reveal-left.reveal-visible {
+  translate: 0 0;
+}
+.reveal.reveal-right {
+  translate: 64px 0;
+}
+.reveal.reveal-right.reveal-visible {
+  translate: 0 0;
+}
+.reveal.reveal-zoom {
+  translate: 0 0;
+  scale: 0.92;
+}
+.reveal.reveal-zoom.reveal-visible {
+  scale: 1;
+}
+
+/* Stagger: apply to a grid/list container alongside a <Reveal> ancestor —
+   children cascade in via the ancestor's single reveal-visible toggle,
+   so no extra IntersectionObserver is created per card. */
+.stagger > * {
+  opacity: 0;
+  translate: 0 32px;
+  transition: opacity 0.5s var(--ease-entrance), translate 0.5s var(--ease-entrance), scale 0.5s var(--ease-entrance);
+}
+.reveal-visible .stagger > * {
+  opacity: 1;
+  translate: 0 0;
+}
+.stagger > *:nth-child(1) {
+  transition-delay: 0ms;
+}
+.stagger > *:nth-child(2) {
+  transition-delay: 70ms;
+}
+.stagger > *:nth-child(3) {
+  transition-delay: 140ms;
+}
+.stagger > *:nth-child(4) {
+  transition-delay: 210ms;
+}
+.stagger > *:nth-child(5) {
+  transition-delay: 280ms;
+}
+.stagger > *:nth-child(n + 6) {
+  transition-delay: 350ms;
+}
+.stagger-zoom > * {
+  translate: 0 0;
+  scale: 0.92;
+}
+.reveal-visible .stagger-zoom > * {
+  scale: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -224,8 +298,10 @@ button.card:active {
   *::before,
   *::after {
     animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+    transition-delay: 0ms !important;
     scroll-behavior: auto !important;
   }
 }

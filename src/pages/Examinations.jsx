@@ -38,7 +38,7 @@ export default function Examinations() {
       <Reveal as="section" className="content-section alt">
         <div className="wrap">
           <h2>Examination procedures</h2>
-          <div className="req-grid">
+          <div className="req-grid stagger">
             <div className="req-card card">
               <h4>Manual of procedures</h4>
               <p>Manual of Procedures for Conduct of Undergraduate Examinations — effective 29 October 2023.</p>

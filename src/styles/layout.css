@@ -110,6 +110,15 @@ header.site {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
+.nav-bar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.nav-cta {
+  flex: none;
+}
 nav.main {
   display: flex;
   align-items: center;

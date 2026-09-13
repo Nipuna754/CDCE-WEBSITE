@@ -36,7 +36,7 @@ export default function StudentServices() {
 
       <Reveal as="section" className="content-section">
         <div className="wrap">
-          <div className="service-grid">
+          <div className="service-grid stagger">
             {services.map((s) => (
               <a className="service-card card" href={s.href} target="_blank" rel="noreferrer" key={s.title}>
                 <span className="badge-external">External system ↗</span>

@@ -14,6 +14,7 @@
   --on-accent: #fbeef0;
   --on-gold: #000000;
   --focus: #2f6fb3;
+  --ease-entrance: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   /* Brand fill: the institutional maroon used for solid panels (hero, CTA
      bands, primary buttons). Stays constant across themes — unlike --accent,

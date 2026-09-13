@@ -76,13 +76,18 @@ export default function Header() {
         </div>
 
         <div className="nav-bar">
-          <nav className="main wrap">
-            {navLinks.map((link) => (
-              <NavLink key={link.to} to={link.to} end={link.to === "/"}>
-                {link.label}
-              </NavLink>
-            ))}
-          </nav>
+          <div className="wrap nav-bar-row">
+            <nav className="main">
+              {navLinks.map((link) => (
+                <NavLink key={link.to} to={link.to} end={link.to === "/"}>
+                  {link.label}
+                </NavLink>
+              ))}
+            </nav>
+            <a className="btn btn-gold nav-cta" href={externalSystems.applyOnline} target="_blank" rel="noreferrer">
+              Apply now
+            </a>
+          </div>
         </div>
 
         <div className="mobile-nav-wrap" style={{ maxHeight: mobileNavHeight }}>

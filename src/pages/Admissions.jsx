@@ -42,7 +42,7 @@ export default function Admissions() {
       <Reveal as="section" className="content-section alt">
         <div className="wrap">
           <h2>Admission requirements</h2>
-          <div className="req-grid">
+          <div className="req-grid stagger">
             <div className="req-card card">
               <h4>Degree programmes</h4>
               <p>G.C.E. (A/L) with three passes, or an equivalent qualification approved by the Senate.</p>
@@ -73,7 +73,7 @@ export default function Admissions() {
         </div>
       </Reveal>
 
-      <Reveal className="cta-band">
+      <Reveal className="cta-band reveal-zoom">
         <div>
           <h2>Ready to apply?</h2>
           <p>Applications close 30 August 2026 — apply online in a few minutes.</p>

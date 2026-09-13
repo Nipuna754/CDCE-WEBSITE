@@ -22,7 +22,7 @@ export default function useReveal(options) {
           observer.disconnect();
         }
       },
-      { threshold: 0.15, rootMargin: "0px 0px -8% 0px", ...options }
+      { threshold: 0, rootMargin: "0px 0px 100px 0px", ...options }
     );
 
     observer.observe(el);
