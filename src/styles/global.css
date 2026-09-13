@@ -219,13 +219,26 @@ button.card:active {
   animation: fade-up 0.6s ease 0.24s both;
 }
 
+/* Header entrance on first load — mirrors eng.pdn.ac.lk's sticky-header
+   slideDown treatment, which this site had no equivalent of before. */
+@keyframes header-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Scroll-reveal: sections fade/slide up once as they enter the viewport.
    Used via the <Reveal> wrapper component + useReveal hook. Uses the
    standalone translate/scale properties (not transform) so it composes
    with, rather than fights, existing hover-lift transforms on cards. */
 .reveal {
   opacity: 0;
-  translate: 0 56px;
+  translate: 0 92px;
   transition: opacity 0.6s var(--ease-entrance), translate 0.6s var(--ease-entrance), scale 0.6s var(--ease-entrance);
 }
 .reveal-visible {
@@ -236,13 +249,13 @@ button.card:active {
 /* Direction/scale variants — compound selectors so specificity (not
    stylesheet order) decides the resting offset. */
 .reveal.reveal-left {
-  translate: -64px 0;
+  translate: -110px 0;
 }
 .reveal.reveal-left.reveal-visible {
   translate: 0 0;
 }
 .reveal.reveal-right {
-  translate: 64px 0;
+  translate: 110px 0;
 }
 .reveal.reveal-right.reveal-visible {
   translate: 0 0;
@@ -260,7 +273,7 @@ button.card:active {
    so no extra IntersectionObserver is created per card. */
 .stagger > * {
   opacity: 0;
-  translate: 0 32px;
+  translate: 0 50px;
   transition: opacity 0.5s var(--ease-entrance), translate 0.5s var(--ease-entrance), scale 0.5s var(--ease-entrance);
 }
 .reveal-visible .stagger > * {
