@@ -1,4 +1,5 @@
 import PageHero from "../components/PageHero";
+import Reveal from "../components/Reveal";
 import { externalSystems } from "../data/content";
 import "../styles/inner-pages.css";
 
@@ -10,7 +11,7 @@ export default function Admissions() {
         steps below to apply online.
       </PageHero>
 
-      <section className="content-section">
+      <Reveal as="section" className="content-section">
         <div className="wrap">
           <h2>Application steps</h2>
           <div className="timeline">
@@ -36,9 +37,9 @@ export default function Admissions() {
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="content-section alt">
+      <Reveal as="section" className="content-section alt">
         <div className="wrap">
           <h2>Admission requirements</h2>
           <div className="req-grid">
@@ -56,9 +57,9 @@ export default function Admissions() {
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="content-section">
+      <Reveal as="section" className="content-section">
         <div className="wrap">
           <h2>Important dates — 2026 intake</h2>
           <div className="card" style={{ padding: "0.5rem 1.5rem" }}>
@@ -70,9 +71,9 @@ export default function Admissions() {
             </ul>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <div className="cta-band">
+      <Reveal className="cta-band">
         <div>
           <h2>Ready to apply?</h2>
           <p>Applications close 30 August 2026 — apply online in a few minutes.</p>
@@ -80,7 +81,7 @@ export default function Admissions() {
         <a className="btn btn-gold" href={externalSystems.applyOnline} target="_blank" rel="noreferrer">
           Apply online for 2026
         </a>
-      </div>
+      </Reveal>
     </>
   );
 }

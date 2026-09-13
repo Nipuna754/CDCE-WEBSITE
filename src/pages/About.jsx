@@ -1,4 +1,5 @@
 import PageHero from "../components/PageHero";
+import Reveal from "../components/Reveal";
 import { boardOfManagement } from "../data/content";
 import "../styles/inner-pages.css";
 
@@ -10,7 +11,7 @@ export default function About() {
         the first institution in Sri Lanka to offer external degrees.
       </PageHero>
 
-      <section className="content-section">
+      <Reveal as="section" className="content-section">
         <div className="wrap two-col">
           <div>
             <h2>Vision &amp; mission</h2>
@@ -30,9 +31,9 @@ export default function About() {
             </p>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="content-section alt">
+      <Reveal as="section" className="content-section alt">
         <div className="wrap">
           <h2>Director's message</h2>
           <div className="card quote-card">
@@ -44,9 +45,9 @@ export default function About() {
             <span className="quote-attr">— Director, CDCE (message pending final copy)</span>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="content-section">
+      <Reveal as="section" className="content-section">
         <div className="wrap">
           <h2>Board of Management</h2>
           <div className="card" style={{ padding: "0.5rem 1.5rem" }}>
@@ -57,7 +58,7 @@ export default function About() {
             </ul>
           </div>
         </div>
-      </section>
+      </Reveal>
     </>
   );
 }

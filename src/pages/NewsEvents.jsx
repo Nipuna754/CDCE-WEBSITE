@@ -1,4 +1,5 @@
 import PageHero from "../components/PageHero";
+import Reveal from "../components/Reveal";
 import { news, events } from "../data/content";
 import "../styles/inner-pages.css";
 import "../styles/home.css";
@@ -10,7 +11,7 @@ export default function NewsEvents() {
         Recent activity, ceremonies, and what's coming up at CDCE.
       </PageHero>
 
-      <section className="content-section">
+      <Reveal as="section" className="content-section">
         <div className="wrap">
           <h2>Upcoming events</h2>
           <div className="list-card card">
@@ -28,9 +29,9 @@ export default function NewsEvents() {
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="content-section alt">
+      <Reveal as="section" className="content-section alt">
         <div className="wrap">
           <h2>Recent news</h2>
           <div className="news-grid">
@@ -48,7 +49,7 @@ export default function NewsEvents() {
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
     </>
   );
 }

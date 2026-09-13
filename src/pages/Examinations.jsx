@@ -1,4 +1,5 @@
 import PageHero from "../components/PageHero";
+import Reveal from "../components/Reveal";
 import { notices } from "../data/content";
 import "../styles/inner-pages.css";
 
@@ -11,7 +12,7 @@ export default function Examinations() {
         Timetables, results, and examination procedures for all CDCE degree, diploma and certificate programmes.
       </PageHero>
 
-      <section className="content-section">
+      <Reveal as="section" className="content-section">
         <div className="wrap two-col">
           <div>
             <h2>Timetables</h2>
@@ -32,9 +33,9 @@ export default function Examinations() {
             </p>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="content-section alt">
+      <Reveal as="section" className="content-section alt">
         <div className="wrap">
           <h2>Examination procedures</h2>
           <div className="req-grid">
@@ -52,7 +53,7 @@ export default function Examinations() {
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
     </>
   );
 }

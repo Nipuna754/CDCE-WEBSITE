@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PageHero from "../components/PageHero";
+import Reveal from "../components/Reveal";
 import { contact } from "../data/content";
 import "../styles/inner-pages.css";
 
@@ -112,7 +113,7 @@ export default function Contact() {
         Reach the Centre directly — this page replaces the old contact popup with a real, linkable page.
       </PageHero>
 
-      <section className="content-section">
+      <Reveal as="section" className="content-section">
         <div className="wrap contact-grid">
           <div className="contact-card card">
             <div className="contact-row">
@@ -156,9 +157,9 @@ export default function Contact() {
             />
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="content-section alt">
+      <Reveal as="section" className="content-section alt">
         <div className="wrap">
           <div className="form-section-head">
             <div className="eyebrow">Send a message</div>
@@ -169,7 +170,7 @@ export default function Contact() {
             <ContactForm />
           </div>
         </div>
-      </section>
+      </Reveal>
     </>
   );
 }

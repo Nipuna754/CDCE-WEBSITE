@@ -1,10 +1,11 @@
 import PageHero from "../components/PageHero";
+import Reveal from "../components/Reveal";
 import { degreeProgrammes, diplomaProgrammes, certificateProgrammes, externalSystems } from "../data/content";
 import "../styles/programmes.css";
 
 function ProgrammeSection({ title, count, items }) {
   return (
-    <section className="prog-section">
+    <Reveal as="section" className="prog-section">
       <div className="wrap">
         <div className="sec-head">
           <h2>{title}</h2>
@@ -24,7 +25,7 @@ function ProgrammeSection({ title, count, items }) {
           ))}
         </div>
       </div>
-    </section>
+    </Reveal>
   );
 }
 
@@ -40,7 +41,7 @@ export default function Programmes() {
       <ProgrammeSection title="Diploma programmes" count={diplomaProgrammes.length} items={diplomaProgrammes} />
       <ProgrammeSection title="Certificate programmes" count={certificateProgrammes.length} items={certificateProgrammes} />
 
-      <div className="cta-band">
+      <Reveal className="cta-band">
         <div>
           <h2>Ready to apply?</h2>
           <p>New intake applications close 30 August 2026 — apply online in a few minutes.</p>
@@ -48,7 +49,7 @@ export default function Programmes() {
         <a className="btn btn-gold" href={externalSystems.applyOnline} target="_blank" rel="noreferrer">
           Apply online for 2026
         </a>
-      </div>
+      </Reveal>
     </>
   );
 }

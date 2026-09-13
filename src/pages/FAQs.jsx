@@ -1,5 +1,6 @@
 import { useEffect, useId, useRef, useState } from "react";
 import PageHero from "../components/PageHero";
+import Reveal from "../components/Reveal";
 import { faqs } from "../data/content";
 import "../styles/inner-pages.css";
 
@@ -52,7 +53,7 @@ export default function FAQs() {
         Common questions about applying, studying, and using CDCE's systems.
       </PageHero>
 
-      <section className="content-section">
+      <Reveal as="section" className="content-section">
         <div className="wrap">
           <div className="faq-list">
             {faqs.map((f, i) => (
@@ -60,7 +61,7 @@ export default function FAQs() {
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
     </>
   );
 }

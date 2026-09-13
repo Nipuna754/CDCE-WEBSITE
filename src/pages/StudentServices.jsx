@@ -1,4 +1,5 @@
 import PageHero from "../components/PageHero";
+import Reveal from "../components/Reveal";
 import { externalSystems } from "../data/content";
 import "../styles/inner-pages.css";
 
@@ -33,7 +34,7 @@ export default function StudentServices() {
         platform for each service.
       </PageHero>
 
-      <section className="content-section">
+      <Reveal as="section" className="content-section">
         <div className="wrap">
           <div className="service-grid">
             {services.map((s) => (
@@ -45,7 +46,7 @@ export default function StudentServices() {
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
     </>
   );
 }

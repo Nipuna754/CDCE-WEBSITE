@@ -1,4 +1,5 @@
 import PageHero from "../components/PageHero";
+import Reveal from "../components/Reveal";
 import { notices } from "../data/content";
 import "../styles/inner-pages.css";
 
@@ -10,7 +11,7 @@ export default function Notices() {
         announcements, most recent first.
       </PageHero>
 
-      <section className="content-section">
+      <Reveal as="section" className="content-section">
         <div className="wrap">
           <div className="notice-full-list">
             {notices.map((n) => (
@@ -27,7 +28,7 @@ export default function Notices() {
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
     </>
   );
 }

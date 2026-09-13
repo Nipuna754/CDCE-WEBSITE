@@ -1,4 +1,5 @@
 import PageHero from "../components/PageHero";
+import Reveal from "../components/Reveal";
 import { downloadCategories } from "../data/content";
 import "../styles/inner-pages.css";
 
@@ -9,7 +10,7 @@ export default function Downloads() {
         Forms, handbooks, past papers and administrative documents, organized by category.
       </PageHero>
 
-      <section className="content-section">
+      <Reveal as="section" className="content-section">
         <div className="wrap">
           <div className="downloads-grid">
             {downloadCategories.map((cat) => (
@@ -24,7 +25,7 @@ export default function Downloads() {
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
     </>
   );
 }
