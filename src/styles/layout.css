@@ -161,8 +161,17 @@ nav.main a.active {
   transition: color var(--dur-ui) var(--ease-ui), background-color var(--dur-ui) var(--ease-ui),
     border-color var(--dur-ui) var(--ease-ui), transform var(--dur-ui) var(--ease-ui);
 }
-.search-btn {
-  font-size: 1.8rem;
+/* Icon size lives here rather than on a font-size: these are real SVGs, not
+   the text glyphs they replaced. The old ⌕ / ≡ characters render small and
+   inconsistently inside their em box, so raising font-size barely moved
+   them. Tune the two values below to resize. */
+.icon-btn svg {
+  width: 24px;
+  height: 24px;
+}
+.search-btn svg {
+  width: 27px;
+  height: 27px;
 }
 .icon-btn:hover {
   border-color: var(--gold);

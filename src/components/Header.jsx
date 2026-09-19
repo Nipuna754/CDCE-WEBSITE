@@ -62,7 +62,10 @@ export default function Header() {
 
           <div className="head-actions">
             <button className="icon-btn search-btn" aria-label="Search" title="Search (⌘K)" onClick={() => setSearchOpen(true)}>
-              ⌕
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <circle cx="10.5" cy="10.5" r="6.75" />
+                <path d="M20 20l-4.4-4.4" />
+              </svg>
             </button>
             <button
               className="icon-btn menu-toggle"
@@ -70,7 +73,9 @@ export default function Header() {
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
             >
-              {open ? "✕" : "≡"}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" aria-hidden="true">
+                {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+              </svg>
             </button>
           </div>
         </div>
