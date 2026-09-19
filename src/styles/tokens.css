@@ -22,6 +22,14 @@
   --focus: #2f6fb3;
   --ease-entrance: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
+  /* Interaction easing + duration, taken from the approved reference, which
+     runs every hover/focus transition at 0.15s on this one curve. Keeping a
+     single pair here is the point: the site previously mixed 0.1/0.15/0.2/
+     0.25s on a generic `ease`, which is what made interactions feel less
+     settled than the reference. */
+  --ease-ui: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-ui: 0.15s;
+
   /* Darker gold reserved for gold-coloured TEXT and icons sitting on light
      surfaces. The brand gold above is vivid enough to fail AA as small text
      on cream (2.45:1); this one clears it (4.76:1). The reference sidesteps

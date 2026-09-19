@@ -29,6 +29,21 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+/* Baseline interaction smoothing on every interactive element, mirroring the
+   reference's colour/opacity transition set. Component rules below may
+   declare their own `transition` (for a lift or shadow) and will override
+   this wholesale, so those rules repeat the colour properties themselves. */
+a,
+button,
+input,
+textarea,
+select,
+summary {
+  transition: color var(--dur-ui) var(--ease-ui), background-color var(--dur-ui) var(--ease-ui),
+    border-color var(--dur-ui) var(--ease-ui), fill var(--dur-ui) var(--ease-ui),
+    stroke var(--dur-ui) var(--ease-ui), opacity var(--dur-ui) var(--ease-ui);
+}
 h1,
 h2,
 h3 {
@@ -70,7 +85,9 @@ svg {
   border: 1px solid transparent;
   cursor: pointer;
   white-space: nowrap;
-  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+  transition: color var(--dur-ui) var(--ease-ui), background-color var(--dur-ui) var(--ease-ui),
+    border-color var(--dur-ui) var(--ease-ui), filter var(--dur-ui) var(--ease-ui),
+    transform var(--dur-ui) var(--ease-ui);
 }
 .btn:active {
   transform: scale(0.97);
@@ -156,7 +173,9 @@ svg {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 12px;
-  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition: color var(--dur-ui) var(--ease-ui), background-color var(--dur-ui) var(--ease-ui),
+    border-color var(--dur-ui) var(--ease-ui), transform var(--dur-ui) var(--ease-ui),
+    box-shadow var(--dur-ui) var(--ease-ui);
 }
 .card:hover {
   border-color: var(--gold);
@@ -285,11 +304,16 @@ button.card:active {
    `transition` shorthand for the hover lift at 0,1,0 but LATER in source
    order, so an unscoped `.stagger > *` lost the transition property to them
    and those cards snapped in instead of animating. */
+/* Because this rule wins the `transition` property outright on staggered
+   cards, it must also carry their interaction transitions — otherwise the
+   hover lift and border change on those cards snap with no easing. */
 .reveal .stagger > * {
   opacity: 0;
   translate: 0 50px;
   transition: opacity 0.5s var(--ease-entrance), translate 0.5s var(--ease-entrance), scale 0.5s var(--ease-entrance),
-    rotate 0.5s var(--ease-entrance);
+    rotate 0.5s var(--ease-entrance), color var(--dur-ui) var(--ease-ui),
+    background-color var(--dur-ui) var(--ease-ui), border-color var(--dur-ui) var(--ease-ui),
+    transform var(--dur-ui) var(--ease-ui), box-shadow var(--dur-ui) var(--ease-ui);
 }
 .stagger > *:nth-child(1) {
   transition-delay: 0ms;
