@@ -9,6 +9,14 @@ body,
   margin: 0;
   padding: 0;
 }
+/* The horizontal reveal variants park elements ±110px outside the layout
+   before they animate in. Clipping must be on the ROOT element, not just
+   body: the viewport scrollbar is driven by the root, so body-only
+   clipping still let the page scroll sideways by that amount. `clip`
+   rather than `hidden` so the sticky header keeps working. */
+html {
+  overflow-x: clip;
+}
 body {
   background: var(--bg);
   color: var(--ink);
@@ -271,14 +279,17 @@ button.card:active {
 /* Stagger: apply to a grid/list container alongside a <Reveal> ancestor —
    children cascade in via the ancestor's single reveal-visible toggle,
    so no extra IntersectionObserver is created per card. */
-.stagger > * {
+/* All stagger rules are scoped under .reveal (an ancestor is always a
+   <Reveal>, so this is free) purely to raise specificity to 0,2,0. Card
+   classes like .quick-card / .study-card / .prog-card declare their own
+   `transition` shorthand for the hover lift at 0,1,0 but LATER in source
+   order, so an unscoped `.stagger > *` lost the transition property to them
+   and those cards snapped in instead of animating. */
+.reveal .stagger > * {
   opacity: 0;
   translate: 0 50px;
-  transition: opacity 0.5s var(--ease-entrance), translate 0.5s var(--ease-entrance), scale 0.5s var(--ease-entrance);
-}
-.reveal-visible .stagger > * {
-  opacity: 1;
-  translate: 0 0;
+  transition: opacity 0.5s var(--ease-entrance), translate 0.5s var(--ease-entrance), scale 0.5s var(--ease-entrance),
+    rotate 0.5s var(--ease-entrance);
 }
 .stagger > *:nth-child(1) {
   transition-delay: 0ms;
@@ -298,9 +309,34 @@ button.card:active {
 .stagger > *:nth-child(n + 6) {
   transition-delay: 350ms;
 }
-.stagger-zoom > * {
+/* 3D flip variant — cards hinge up from their bottom edge, mirroring the
+   flipUp entrance eng.pdn.ac.lk uses. The perspective sits on the container
+   rather than the card, so the card animates via the standalone `rotate`
+   property and leaves `transform` free for the hover lift; putting the
+   perspective on the card itself would need transform here, and the
+   .reveal-visible rule (0,3,0) would then outrank .quick-card:hover (0,2,0)
+   and kill the lift permanently. A long 2000px perspective keeps the
+   distortion mild across a wide grid, the same reason their config uses 2500. */
+.stagger-flip {
+  perspective: 2000px;
+}
+.reveal .stagger-flip > * {
+  translate: 0 0;
+  rotate: x -55deg;
+  transform-origin: 50% 100%;
+}
+.reveal .stagger-zoom > * {
   translate: 0 0;
   scale: 0.92;
+}
+
+/* Resting states last, so they win at equal specificity. */
+.reveal-visible .stagger > * {
+  opacity: 1;
+  translate: 0 0;
+}
+.reveal-visible .stagger-flip > * {
+  rotate: x 0deg;
 }
 .reveal-visible .stagger-zoom > * {
   scale: 1;

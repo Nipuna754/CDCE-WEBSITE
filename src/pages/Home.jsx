@@ -256,7 +256,7 @@ export default function Home() {
           <div className="section-head">
             <h2>Quick access</h2>
           </div>
-          <div className="quick-grid stagger">
+          <div className="quick-grid stagger stagger-flip">
             {quickLinks.map((item) => (
               <QuickCard item={item} key={item.title} />
             ))}
