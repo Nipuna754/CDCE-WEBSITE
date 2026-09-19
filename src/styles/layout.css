@@ -305,7 +305,7 @@ footer.site {
 .page-hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(150deg, var(--brand-strong) 0%, var(--brand) 45%, #8f2c40 75%, var(--gold) 165%);
+  background: linear-gradient(150deg, var(--brand-strong) 0%, var(--brand) 45%, #a3001e 75%, var(--gold) 165%);
   color: var(--on-brand);
   padding: 3.2rem 0 2.8rem;
 }
@@ -317,7 +317,7 @@ footer.site {
 }
 .page-hero p {
   max-width: 60ch;
-  color: #f3e4e6;
+  color: #efe4d3;
   margin-top: 0.9rem;
   font-size: 1.12rem;
 }
@@ -330,7 +330,7 @@ footer.site {
 .cta-band {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(150deg, var(--brand-strong) 0%, var(--brand) 45%, #8f2c40 75%, var(--gold) 165%);
+  background: linear-gradient(150deg, var(--brand-strong) 0%, var(--brand) 45%, #a3001e 75%, var(--gold) 165%);
   color: var(--on-brand);
   padding: 2.6rem clamp(1.4rem, 4vw, 3rem);
   border-radius: 16px;
@@ -347,7 +347,7 @@ footer.site {
 }
 .cta-band p {
   margin: 0.4rem 0 0;
-  color: #f3e4e6;
+  color: #efe4d3;
   max-width: 44ch;
 }
 

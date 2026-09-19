@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(155deg, var(--brand-strong) 0%, var(--brand) 42%, #8f2c40 72%, var(--gold) 155%);
+  background: linear-gradient(155deg, var(--brand-strong) 0%, var(--brand) 42%, #a3001e 72%, var(--gold) 155%);
 }
 .hero-grid {
   position: relative;
@@ -66,7 +66,7 @@
 }
 .hero-main p {
   max-width: 50ch;
-  color: #f3e4e6;
+  color: #efe4d3;
   margin: 0.6rem 0 0;
   font-size: 1.1rem;
 }
@@ -88,7 +88,7 @@
   position: relative;
   padding-left: 1.1rem;
   font-size: 0.9rem;
-  color: #f3e4e6;
+  color: #efe4d3;
 }
 .hero-highlights span::before {
   content: "";
@@ -186,7 +186,7 @@
 .notice-item .date {
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: var(--gold);
+  color: var(--gold-ink);
 }
 .notice-item .t {
   font-size: 1rem;
@@ -221,7 +221,7 @@
 .ci-num {
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  color: var(--gold);
+  color: var(--gold-ink);
   border-bottom: 2px solid var(--gold);
   padding-bottom: 0.6rem;
   margin-bottom: 0.2rem;
@@ -238,7 +238,7 @@
 
 /* Stats band */
 .stats {
-  background: linear-gradient(150deg, var(--brand-strong) 0%, var(--brand) 55%, #8f2c40 100%);
+  background: linear-gradient(150deg, var(--brand-strong) 0%, var(--brand) 55%, #a3001e 100%);
   padding: 2.6rem 0;
   position: relative;
   overflow: hidden;
@@ -451,7 +451,7 @@
 .study {
   position: relative;
   padding: 4.5rem 0;
-  background: linear-gradient(160deg, rgba(90, 26, 36, 0.93), rgba(74, 21, 30, 0.89)), url("/images/study-degree.jpg");
+  background: linear-gradient(160deg, rgba(122, 0, 22, 0.93), rgba(66, 0, 11, 0.89)), url("/images/study-degree.jpg");
   background-size: cover;
   background-position: center 30%;
 }
@@ -562,7 +562,7 @@
 .news-body .date {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--gold);
+  color: var(--gold-ink);
   margin-bottom: 0.4rem;
   display: block;
 }

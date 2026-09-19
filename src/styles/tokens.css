@@ -1,33 +1,46 @@
 :root {
+  /* Brand colours read from the approved reference design's own CSS
+     custom properties (maroon #7a0016, maroon-dark #42000b, gold #c59b27,
+     gold-light #eed88f, ivory #faf8f5, parchment #f4efe6). The hues here
+     were always right; the previous values were the same hues at roughly
+     half the saturation, which is what made this site read flatter than
+     the approved design. */
   --bg: #faf8f5;
   --surface: #ffffff;
-  --surface-2: #f2ede7;
-  --ink: #241b1d;
+  --surface-2: #f4efe6;
+  --ink: #1f1f1f;
   --ink-soft: #6b5d5f;
   --ink-faint: #786a6c;
-  --line: #e6dfd9;
-  --accent: #7a2331;
-  --accent-strong: #5c1a25;
-  --accent-soft: #f3e2e4;
-  --gold: #96702a;
-  --gold-soft: #f1e6cf;
-  --on-accent: #fbeef0;
-  --on-gold: #000000;
+  --line: #ded8ce;
+  --accent: #7a0016;
+  --accent-strong: #42000b;
+  --accent-soft: #f7dee3;
+  --gold: #c59b27;
+  --gold-soft: #f7edd4;
+  --on-accent: #fbf7ea;
+  --on-gold: #4d000e;
   --focus: #2f6fb3;
   --ease-entrance: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* Darker gold reserved for gold-coloured TEXT and icons sitting on light
+     surfaces. The brand gold above is vivid enough to fail AA as small text
+     on cream (2.45:1); this one clears it (4.76:1). The reference sidesteps
+     the issue by only ever using gold as a fill or hairline, never as body
+     text — this site does use it as text, so it needs the second token. */
+  --gold-ink: #886b1b;
 
   /* Brand fill: the institutional maroon used for solid panels (hero, CTA
      bands, primary buttons). Stays constant across themes — unlike --accent,
      which intentionally lightens in dark mode for text/link legibility. */
-  --brand: #7a2331;
-  --brand-strong: #5c1a25;
-  --on-brand: #fbeef0;
+  --brand: #7a0016;
+  --brand-strong: #42000b;
+  --on-brand: #fbf7ea;
   --veil-strong: rgba(255, 255, 255, 0.9);
-  --veil-soft: rgba(242, 237, 231, 0.84);
+  --veil-soft: rgba(244, 239, 230, 0.84);
 
   /* Third accent — warm terracotta, used sparingly for category labels and
      small highlight details so the palette reads as more than maroon+gold. */
-  --terracotta: #b5651d;
+  --terracotta: #955318;
   --terracotta-soft: #f6e6d6;
 
   --font-display: "Lora", Georgia, serif;

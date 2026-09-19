@@ -81,7 +81,7 @@
 .notice-full-card .date {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--gold);
+  color: var(--gold-ink);
 }
 .notice-full-card h3 {
   font-size: 1.05rem;
@@ -194,7 +194,7 @@
 }
 .download-cat li::before {
   content: "↓";
-  color: var(--gold);
+  color: var(--gold-ink);
   font-family: var(--font-mono);
   flex: none;
 }
@@ -268,7 +268,7 @@
   height: 34px;
   border-radius: 8px;
   background: var(--gold-soft);
-  color: var(--gold);
+  color: var(--gold-ink);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -328,7 +328,7 @@
   font-family: var(--font-mono);
   font-size: 0.68rem;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-ink);
   letter-spacing: 0.05em;
 }
 
@@ -409,7 +409,7 @@
   height: 48px;
   border-radius: 50%;
   background: var(--gold-soft);
-  color: var(--gold);
+  color: var(--gold-ink);
   display: flex;
   align-items: center;
   justify-content: center;
