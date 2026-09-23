@@ -238,7 +238,11 @@ footer.site {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr 1fr;
   gap: 2.2rem;
-  padding: 3rem 0 2.2rem;
+  /* padding-block only: a `padding` shorthand here would override the side
+     gutter .wrap supplies, leaving the footer flush against the screen edge
+     on mobile. */
+  padding-top: 3rem;
+  padding-bottom: 2.2rem;
 }
 @media (max-width: 800px) {
   .foot-grid {
@@ -299,7 +303,8 @@ footer.site {
 }
 .foot-bottom {
   border-top: 1px solid var(--line);
-  padding: 1.1rem 0;
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
