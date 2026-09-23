@@ -22,6 +22,12 @@
   --focus: #2f6fb3;
   --ease-entrance: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
+  /* Side gutter. Fluid up to tablet; pinned to 25px on desktop to match
+     eng.pdn.ac.lk, which uses a flat 25px gutter at every width. Copying
+     their value verbatim would widen mobile (16px -> 25px) and narrow
+     tablet (31px -> 25px), so the override below is desktop-only. */
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+
   /* Interaction easing + duration, taken from the approved reference, which
      runs every hover/focus transition at 0.15s on this one curve. Keeping a
      single pair here is the point: the site previously mixed 0.1/0.15/0.2/
@@ -77,4 +83,10 @@
   --focus: #7fb2e8;
   --veil-strong: rgba(34, 26, 27, 0.88);
   --veil-soft: rgba(42, 33, 34, 0.84);
+}
+
+@media (min-width: 1025px) {
+  :root {
+    --gutter: 25px;
+  }
 }

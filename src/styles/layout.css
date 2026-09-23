@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.45rem clamp(1rem, 4vw, 2.5rem);
+  padding: 0.45rem var(--gutter);
 }
 .utility-links {
   display: flex;
@@ -66,7 +66,7 @@ header.site {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  padding: 0.9rem clamp(1rem, 4vw, 2.5rem);
+  padding: 0.9rem var(--gutter);
 }
 .brand {
   display: flex;
@@ -203,7 +203,7 @@ nav.main a.active {
 .mobile-nav {
   border-top: 1px solid var(--line);
   background: var(--surface);
-  padding: 0.6rem clamp(1rem, 4vw, 2.5rem) 1rem;
+  padding: 0.6rem var(--gutter) 1rem;
   display: flex;
   flex-direction: column;
   box-shadow: 0 18px 32px -20px rgba(36, 27, 29, 0.3);
@@ -344,7 +344,7 @@ footer.site {
   color: var(--on-brand);
   padding: 2.6rem clamp(1.4rem, 4vw, 3rem);
   border-radius: 16px;
-  margin: 1rem clamp(1rem, 4vw, 2.5rem) 3.5rem;
+  margin: 1rem var(--gutter) 3.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
