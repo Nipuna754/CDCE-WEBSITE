@@ -62,7 +62,7 @@ svg {
   outline-offset: 2px;
 }
 .wrap {
-  max-width: 1180px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 clamp(1rem, 4vw, 2.5rem);
 }
