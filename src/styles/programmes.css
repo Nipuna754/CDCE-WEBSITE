@@ -1,9 +1,10 @@
 .prog-section {
   padding: 3rem 0;
 }
-.prog-section:nth-of-type(odd) {
-  background: var(--gold-soft);
-}
+/* No alternating section bands: the approved design runs one continuous
+   ivory page and lets the card tone alone carry the structure. The old
+   nth-of-type parity was also off by one, because PageHero is a <section>
+   too and shifted the count. */
 .sec-head {
   display: flex;
   align-items: center;
@@ -25,23 +26,32 @@
 }
 .prog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.1rem;
+  /* Explicitly two columns, not auto-fit. auto-fit maximises the column
+     count (4 at this width), which cramped the long programme titles and
+     left the 5-item diploma section with one orphan card beside three empty
+     tracks. The approved design is a deliberate 2-up. */
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 768px) {
+  .prog-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 .prog-card {
-  background: var(--bg);
+  /* One step down from the page, never equal to it. Two of the three
+     sections previously painted cards in var(--bg) — the exact page colour —
+     so those cards had no surface of their own and the page read flat. */
+  background: var(--surface-2);
   border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 1.8rem 1.7rem 1.6rem;
+  border-radius: 12px;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
   transition: color var(--dur-ui) var(--ease-ui), background-color var(--dur-ui) var(--ease-ui),
     border-color var(--dur-ui) var(--ease-ui), transform var(--dur-ui) var(--ease-ui),
     box-shadow var(--dur-ui) var(--ease-ui);
-}
-.prog-section:nth-of-type(odd) .prog-card {
-  background: var(--surface);
 }
 .prog-card:hover {
   border-color: var(--gold);

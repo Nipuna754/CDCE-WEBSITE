@@ -51,6 +51,17 @@ h3 {
   font-weight: 600;
   text-wrap: balance;
   margin: 0;
+  /* Headings must declare their own leading. body's 1.6 is a reading measure
+     for paragraphs; inherited onto display type it is what made headings read
+     airier and less composed than the approved design at identical font
+     sizes. The reference runs 1.0 on its page title and 1.2 on section heads. */
+  line-height: 1.2;
+}
+h1 {
+  line-height: 1.08;
+}
+h3 {
+  line-height: 1.35;
 }
 img,
 svg {
