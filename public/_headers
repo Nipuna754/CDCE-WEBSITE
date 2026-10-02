@@ -1,0 +1,10 @@
+# Keeps this preview deployment out of search results.
+#
+# Deliberately NOT a robots.txt Disallow: that would stop crawlers fetching the
+# page at all, so they'd never read this header — and the URL can still be
+# indexed from an external link. X-Robots-Tag is the mechanism that actually
+# guarantees the page never appears in search results.
+#
+# Remove this file if the site ever becomes the official cdce.pdn.ac.lk.
+/*
+  X-Robots-Tag: noindex, nofollow

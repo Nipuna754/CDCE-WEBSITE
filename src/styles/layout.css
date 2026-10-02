@@ -461,3 +461,54 @@ footer.site {
   color: var(--ink-soft);
   font-size: 0.9rem;
 }
+
+/* ---------- Proposal notice (preview deployments only) ---------- */
+/* Sits above the sticky header, so it scrolls away and the header still
+   pins to the top. Gold on --brand-strong is 5.4:1 — gold as text is only a
+   contrast problem on LIGHT surfaces, which is what --gold-ink is for. */
+.proposal-notice {
+  background: var(--brand-strong);
+  color: var(--on-brand);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.55rem var(--gutter);
+}
+.proposal-notice p {
+  margin: 0;
+  text-align: center;
+  text-wrap: pretty;
+}
+.proposal-notice a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.proposal-notice a:hover {
+  color: var(--on-brand);
+}
+.proposal-notice button {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  opacity: 0.75;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.proposal-notice button:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.14);
+}
+.proposal-notice button svg {
+  width: 15px;
+  height: 15px;
+}

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import RouteProgress from "./RouteProgress";
+import ProposalNotice from "./ProposalNotice";
 
 export default function Layout() {
   const location = useLocation();
@@ -14,6 +15,7 @@ export default function Layout() {
   return (
     <>
       <RouteProgress />
+      <ProposalNotice />
       <Header />
       <main key={location.pathname} className="route-fade">
         <Outlet />
