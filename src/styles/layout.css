@@ -88,6 +88,7 @@ header.site {
   font-weight: 700;
   font-size: 1.1rem;
   line-height: 1.25;
+  letter-spacing: -0.025em;
   max-width: 32ch;
 }
 @media (max-width: 480px) {
@@ -128,8 +129,9 @@ nav.main {
   padding: 0.7rem 0;
 }
 nav.main a {
-  font-size: 0.92rem;
-  font-weight: 600;
+  /* 14px / 500 in the reference, not 15px / 600. */
+  font-size: 0.875rem;
+  font-weight: 500;
   color: var(--ink-soft);
   padding: 0.3rem 0;
   border-bottom: 2px solid transparent;

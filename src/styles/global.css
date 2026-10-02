@@ -59,6 +59,7 @@ h3 {
 }
 h1 {
   line-height: 1.08;
+  font-weight: 700;
 }
 h3 {
   line-height: 1.35;
@@ -79,8 +80,10 @@ svg {
 }
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
+  /* 0.28em, not 0.1em. The reference tracks its eyebrows nearly three times
+     wider, which is what makes them read as a label rather than small text. */
+  font-size: 0.75rem;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -141,6 +144,7 @@ svg {
 }
 .section-head h2 {
   font-size: 1.85rem;
+  color: var(--accent);
 }
 .section-head .see-all {
   font-size: 0.86rem;
@@ -166,7 +170,7 @@ svg {
   align-items: center;
   gap: 0.3rem;
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   padding: 0.3rem 0.65rem;
   border-radius: 100px;
   background: var(--surface);
@@ -229,9 +233,9 @@ button.card:active {
 
 .eyebrow-terracotta {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--terracotta);
 }

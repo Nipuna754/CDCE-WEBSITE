@@ -9,8 +9,12 @@
   --surface: #ffffff;
   --surface-2: #f4efe6;
   --ink: #1f1f1f;
-  --ink-soft: #6b5d5f;
-  --ink-faint: #786a6c;
+  /* Secondary text is a COOL slate in the approved design (#4a5568), not a
+     warm mauve-grey. It carries every card summary, pill and caption on the
+     site, so the old warm value is a large part of why this read different
+     from the reference even where the sizes matched. 7.3:1 on the page. */
+  --ink-soft: #4a5568;
+  --ink-faint: #5f6b7d;
   --line: #ded8ce;
   --accent: #7a0016;
   --accent-strong: #42000b;
@@ -54,7 +58,8 @@
 
   /* Third accent — warm terracotta, used sparingly for category labels and
      small highlight details so the palette reads as more than maroon+gold. */
-  --terracotta: #955318;
+  /* The reference's amber, used for the programme count badges. */
+  --terracotta: #b45309;
   --terracotta-soft: #f6e6d6;
 
   --font-display: "Lora", Georgia, serif;

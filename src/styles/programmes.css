@@ -13,15 +13,18 @@
 }
 .sec-head h2 {
   font-size: 1.85rem;
+  /* Section headings are maroon in the approved design, not near-black. */
+  color: var(--accent);
 }
+/* A bare numeral beside the heading, exactly as the reference sets it: no
+   chip, no padding, no radius. The gold-soft chip this replaces also dragged
+   the amber down to 4.31:1, under the 4.5:1 AA floor. On the page ground it
+   clears at 4.74:1. */
 .count-badge {
   font-family: var(--font-mono);
-  font-size: 0.92rem;
-  font-weight: 600;
-  background: var(--gold-soft);
-  color: var(--gold-ink);
-  border-radius: 100px;
-  padding: 0.2rem 0.65rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--terracotta);
   line-height: 1.4;
 }
 .prog-grid {
@@ -68,7 +71,8 @@
 }
 .prog-card p {
   margin: 0;
-  font-size: 0.98rem;
+  font-size: 0.875rem;
+  line-height: 1.625;
   color: var(--ink-soft);
   flex: 1;
 }
