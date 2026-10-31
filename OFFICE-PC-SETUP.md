@@ -26,8 +26,8 @@ node --version && git --version
 Clone and run:
 
 ```bash
-git clone https://github.com/<YOUR-USERNAME>/cdce-website.git
-cd cdce-website
+git clone https://github.com/Nipuna754/CDCE-WEBSITE.git
+cd CDCE-WEBSITE
 npm install
 npm run dev
 ```
