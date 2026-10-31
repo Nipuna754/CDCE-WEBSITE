@@ -1,5 +1,40 @@
 # Office PC — setup & information gathering
 
+## Start here
+
+Paste this into Claude Code on the office PC, in this repo's folder:
+
+> This is the CDCE website rebuild (Centre for Distance and Continuing Education,
+> University of Peradeniya). I'm continuing on my office PC, which can reach the live
+> server at cdce.pdn.ac.lk. Read HANDOVER.md and this file first — they carry the
+> design decisions and the information-gathering plan.
+>
+> State: the React/Vite frontend is built and complete. It is a design proposal, not
+> published, and the Director has not approved it. No backend exists yet.
+>
+> In order:
+> 1. Part A below — get it running locally, confirm `npm run build` works.
+> 2. Part B below — help me collect the DB schema, row counts, and the Moodle
+>    web-service check.
+> 3. Then help me decide the backend: PHP on the existing server (Apache 2.4 /
+>    FreeBSD / PHP 7.4.30) or Node on a new VM. The deciding question is whether
+>    anything needs to be per-student. If it is all public content, a scheduled JSON
+>    export is probably enough and no backend is needed.
+>
+> Rules that do not bend:
+> - No real student rows and no DB passwords leave the building. Schema only
+>   (`mysqldump --no-data`), fake rows generated locally.
+> - Never expose MySQL 3306 through a tunnel. No DB credentials in the React bundle.
+> - This repo stays private: it documents the server's unpatched PHP 7.4.30 and where
+>   the credentials live.
+>
+> Still open on the frontend: body font (Source Sans 3 vs Plus Jakarta Sans); the
+> dormant dark-theme palette still holds the old warm values that were replaced in
+> light mode; hero photography.
+
+---
+
+
 Two separate machines are involved:
 
 - **Office PC** — your workstation. Runs the dev site, can reach the server.
