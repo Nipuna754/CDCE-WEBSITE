@@ -1,0 +1,33 @@
+# Apache equivalent of public/_redirects, for deploying this build to the
+# university's own server (Apache 2.4 / FreeBSD) instead of Cloudflare Pages.
+#
+# A React SPA is plain static files -- upload the contents of dist/ to the web
+# root over SFTP and it runs. The one thing it needs from the server is this:
+# every URL must serve index.html so client-side routing can take over.
+# Without it, /programmes and every other deep link returns a 404 from Apache,
+# because no such file exists on disk.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Leave real files and directories alone (assets, images, favicon).
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Everything else is a client-side route.
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Hashed asset filenames change on every build, so they can be cached hard.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  <FilesMatch "\.(js|css|woff2|png|jpg|svg)$">
+    ExpiresDefault "access plus 1 year"
+  </FilesMatch>
+  # index.html must never be cached, or visitors keep the old asset references.
+  <FilesMatch "index\.html$">
+    ExpiresDefault "access plus 0 seconds"
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
